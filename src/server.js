@@ -21,6 +21,9 @@ app.get("/signup", async (req, res) => {
   res.render("signup.view.ejs", {});
 });
 
+const product_controller = require("./controllers/product_controller")
+app.use("/products", product_controller)
+
 app.listen(process.env.PORT || 3333, async () => {
   try {
     await connect();
