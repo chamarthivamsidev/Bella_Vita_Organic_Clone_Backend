@@ -10,9 +10,13 @@ router.get("/", async (req, res) => {
   }
 });
 router.get("/api", async (req, res) => {
-  let products = await Products.find().lean().exec();
+  try {
+    let products = await Products.find().lean().exec();
 
-  res.status(200).send(products);
+    res.status(200).send(products);
+  } catch (error) {
+    return res.status(500).send(err.message);
+  }
 });
 
 router.post("/products", async (req, res) => {
