@@ -10,7 +10,7 @@ router.get("/", async (req, res) => {
   // } catch (err) {
   //   return res.status(500).send(err.message);
   // }
-  res.render("landingPage.ejs", {});
+  return res.render("landingPage.ejs", {});
 });
 router.get("/api", async (req, res) => {
   let products = await Products.find().lean().exec();

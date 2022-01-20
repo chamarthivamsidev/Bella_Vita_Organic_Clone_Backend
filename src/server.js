@@ -4,6 +4,7 @@ const app = express();
 const connect = require("./config/db");
 
 // const userController = require("./controllers/user.controller");
+const product_controller = require("./controllers/product_controller");
 
 app.use(express.json());
 app.set("view engine", "ejs"); // root directory for views views/
@@ -21,8 +22,7 @@ app.get("/signup", async (req, res) => {
   res.render("signup.view.ejs", {});
 });
 
-const product_controller = require("./controllers/product_controller")
-app.use("/products", product_controller)
+app.use("/products", product_controller);
 
 app.listen(process.env.PORT || 3333, async () => {
   try {
