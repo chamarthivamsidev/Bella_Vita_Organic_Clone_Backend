@@ -11,9 +11,9 @@ router.get("/", async (req, res) => {
 });
 router.get("/api", async (req, res) => {
   try {
-    let products = await Products.find().lean().exec();
+    let products = await Products.find().lean();
     console.log(products);
-    res.status(200).send(products);
+    return res.status(200).send(products);
   } catch (error) {
     return res.status(500).send(err.message);
   }
