@@ -1,5 +1,5 @@
 let products;
-console.log(products);
+console.log("hello");
 product();
 async function product(req, res) {
   res = await fetch(
