@@ -86,5 +86,5 @@ let header_all_pro = document.getElementById("header_all_pro");
 login.style.display = "block";
 // Create Account
 create_acc_btn.addEventListener("click", () => {
-  window.location.href = "https://bellavitaorganic-clone.herokuapp.com/signup";
+  window.location.href = "https://bellavitaorganic-cloned.herokuapp.com/signup";
 });
