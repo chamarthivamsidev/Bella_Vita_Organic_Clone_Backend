@@ -8,8 +8,8 @@ async function product() {
   // res = await fetch("http://localhost:3333/products/api");
 
   products = await res.json();
-  // console.log(products);
-  showproducts(products);
+  console.log(products);
+  // showproducts(products);
 }
 // console.log(products)
 // container_js
