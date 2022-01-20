@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Product = require("../models/products");
+const User = require("../controllers/user.controller");
 
 router.get("/", async (req, res) => {
   try {
@@ -11,8 +12,9 @@ router.get("/", async (req, res) => {
 });
 router.get("/api", async (req, res) => {
   try {
-    let products = await Product.find().lean();
-    console.log(products);
+    // let products = await Product.find().lean();
+    // console.log(products);
+    let products = await User.find().lean().exec();
     // let products = ["apple", "ball"];
     return res.status(200).send(products);
   } catch (error) {
