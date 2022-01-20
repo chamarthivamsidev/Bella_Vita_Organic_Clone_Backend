@@ -17,9 +17,9 @@ app.get("/", function (req, res) {
   res.render("landingPage.ejs", {});
 });
 
-app.get("/signup", async (req, res) => {
-  res.render("signup.view.ejs", {});
-});
+// app.get("/login", async (req, res) => {
+//   res.render("login.ejs", {});
+// });
 
 app.listen(process.env.PORT || 3333, async () => {
   try {

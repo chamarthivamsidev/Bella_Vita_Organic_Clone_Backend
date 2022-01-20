@@ -27,6 +27,8 @@ let search_box = document.getElementById("search_box");
 let close_search = document.getElementById("close_search");
 let company_logo = document.getElementById("company_logo");
 
+
+
 // let check_status = JSON.parse(localStorage.getItem("check_status"));
 
 // checkout_btn.addEventListener("click", () => {
