@@ -1,14 +1,14 @@
 let products;
 console.log("hello");
 product();
-async function product(req, res) {
-  res = await fetch(
+async function product() {
+  let res = await fetch(
     "https://bellavitaorganic-cloned.herokuapp.com/products/api"
   );
   // res = await fetch("http://localhost:3333/products/api");
 
   products = await res.json();
-  console.log(products);
+  // console.log(products);
   showproducts(products);
 }
 // console.log(products)
