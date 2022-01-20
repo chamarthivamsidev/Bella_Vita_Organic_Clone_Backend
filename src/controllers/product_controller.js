@@ -5,18 +5,16 @@ const Products = require("../models/products");
 router.get("/", async (req, res) => {
   try {
     const products = await Products.find().lean().exec();
-   
-    return res.render("products", {products:products});
+
+    return res.render("products.ejs", { products: products });
   } catch (err) {
     return res.status(500).send(err.message);
   }
 });
 router.get("/api", async (req, res) => {
-
   let products = await Products.find().lean().exec();
 
   res.status(200).send(products);
-
 });
 
 router.post("/products", async (req, res) => {
