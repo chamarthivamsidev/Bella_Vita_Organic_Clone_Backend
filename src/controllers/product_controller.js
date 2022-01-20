@@ -3,14 +3,11 @@ const router = express.Router();
 const Products = require("../models/products");
 
 router.get("/", async (req, res) => {
-  // try {
-  //   const products = await Products.find().lean().exec();
-
-  //   return res.render("products.ejs", { products: products });
-  // } catch (err) {
-  //   return res.status(500).send(err.message);
-  // }
-  return res.render("landingPage.ejs", {});
+  try {
+    return res.render("products.ejs", {});
+  } catch (err) {
+    return res.status(500).send(err.message);
+  }
 });
 router.get("/api", async (req, res) => {
   let products = await Products.find().lean().exec();
