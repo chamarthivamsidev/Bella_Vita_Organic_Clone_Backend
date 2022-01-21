@@ -896,12 +896,7 @@ function gotoCheck() {
   localStorage.setItem("check_status", JSON.stringify(obj));
   window.location.href = "../checkout.html";
 }
-<<<<<<< HEAD
-
-async function addToBag(products) {
-=======
 async function addToBag() {
->>>>>>> 03f3bc1ca48984a526141d64399b68fb570547a2
   alert("hello");
   console.log("hello");
   let bagadd = document.getElementById("bagadd");
