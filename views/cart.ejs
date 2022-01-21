@@ -72,9 +72,10 @@
                                 </div>
                             </div>
                             <div id="external-part">
-                                <div class="ui qty-box"><button onclick="decrease('<%= JSON.stringify(item) %>')"
+                                <div class="ui qty-box"><button onclick="decrease(`<%= item._id %>`, `<%= item.Qty %>`)"
                                         id="dec">-</button><input type="number" id="qty" value="<%= item.Qty %>"><button
-                                        onclick="increase(`<%= item %>`)" id="inc">+</button></div>
+                                        onclick="increase(`<%= item._id %>`, `<%= item.Qty %>`)" id="inc">+</button>
+                                </div>
 
                                 <div onclick="removeProduct(`<%= item._id %>`)" class="remove">
                                     <button class="left"><button type="button" class="btn-close" disabled=""
@@ -152,35 +153,43 @@
 
 </html>
 <script>
-    async function increase(document) {
-        document =JSON.parse(document);
-        console.log(document)
+    async function increase(documentId, qty) {
+        console.log(documentId, qty);
+        await fetch(`https://bellavitaorganic-cloned.herokuapp.com/cart/qty/${documentId}`)
 
+            .then((res) => {
+                // window.location.href = `https://bellavitaorganic-cloned.herokuapp.com/cart/${res.item.shopping_bag_id}`;
+                window.location.href = `https://bellavitaorganic-cloned.herokuapp.com/cart/`;
+                // window.location.href = `http://localhost:3333/cart/`;
+            })
+            .catch((err) => {
+                console.log("err:", err);
+            });
     }
     async function decrease(documentId) {
-        await fetch(`https://bellavitaorganic-cloned.herokuapp.com/cart/qtyd/${documentId}`)
-    
-    .then((res) => {
-      // window.location.href = `https://bellavitaorganic-cloned.herokuapp.com/cart/${res.item.shopping_bag_id}`;
-      window.location.href = `https://bellavitaorganic-cloned.herokuapp.com/cart/`;
-    })
-    .catch((err) => {
-      console.log("err:", err);
-    });
+        await fetch(`https://bellavitaorganic-cloned.herokuapp.com/cart/qty/${documentId}`)
 
+            .then((res) => {
+                // window.location.href = `https://bellavitaorganic-cloned.herokuapp.com/cart/${res.item.shopping_bag_id}`;
+                window.location.href = `https://bellavitaorganic-cloned.herokuapp.com/cart/`;
+                // window.location.href = `http://localhost:3333/cart/`;
+            })
+            .catch((err) => {
+                console.log("err:", err);
+            });
     }
 
     async function removeProduct(documentId) {
-  await fetch(`https://bellavitaorganic-cloned.herokuapp.com/cart/delete/${documentId}`)
-    
-    .then((res) => {
-      // window.location.href = `https://bellavitaorganic-cloned.herokuapp.com/cart/${res.item.shopping_bag_id}`;
-      window.location.href = `https://bellavitaorganic-cloned.herokuapp.com/cart/`;
-    })
-    .catch((err) => {
-      console.log("err:", err);
-    });
-}
+        await fetch(`https://bellavitaorganic-cloned.herokuapp.com/cart/delete/${documentId}`)
+
+            .then((res) => {
+                // window.location.href = `https://bellavitaorganic-cloned.herokuapp.com/cart/${res.item.shopping_bag_id}`;
+                window.location.href = `https://bellavitaorganic-cloned.herokuapp.com/cart/`;
+            })
+            .catch((err) => {
+                console.log("err:", err);
+            });
+    }
 </script>
 <script src="/js/landingPageSlider.js"></script>
 <script src="/js/cart_script.js"></script>

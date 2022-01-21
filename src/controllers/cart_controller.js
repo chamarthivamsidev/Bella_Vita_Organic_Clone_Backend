@@ -22,6 +22,14 @@ router.get("/delete/:id", async (req, res) => {
     return res.status(200).send(bag);
 });
 
+// Api to update the product qty and return updated list
+router.patch("/qty/:id", async (req, res) => {
+  let bag= await await Bag.findByIdAndUpdate(req.params.id, { $inc: { Qty: 1}});
+  
+    return res.status(200).send(bag);
+});
+
+
 
 // /users
 // router.post("", crudController(Bag).post);
