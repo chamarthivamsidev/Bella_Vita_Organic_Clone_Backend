@@ -19,7 +19,6 @@ router.get("/delete/:id", async (req, res) => {
   await Bag.findByIdAndDelete(req.params.id).lean().exec();
     let bag = await Bag.find().lean().exec();
     // 6 users => deleted 1 => when we get all users we get 5 => redirect to index with 5 users
-    bag=[bag]
     return res.status(200).send(bag);
 });
 
