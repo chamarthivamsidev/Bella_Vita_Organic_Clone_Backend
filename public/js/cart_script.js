@@ -1,20 +1,21 @@
-// function removeProduct(documentId) {
-//   fetch(`https://bellavitaorganic-cloned.herokuapp.com/cart/${documentId}`, {
-//     method: "DELETE",
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//   })
-//     .then((res) => {
-//       return res.json();
-//     })
-//     .then((res) => {
-//       window.location.href = `https://bellavitaorganic-cloned.herokuapp.com/cart/${res.item.shopping_bag_id}`;
-//     })
-//     .catch((err) => {
-//       console.log("err:", err);
-//     });
-// }
+function removeProduct(documentId) {
+  fetch(`https://bellavitaorganic-cloned.herokuapp.com/cart/delete/${documentId}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((res) => {
+      return res.json();
+    })
+    .then((res) => {
+      // window.location.href = `https://bellavitaorganic-cloned.herokuapp.com/cart/${res.item.shopping_bag_id}`;
+      window.location.href = `https://bellavitaorganic-cloned.herokuapp.com/cart/`;
+    })
+    .catch((err) => {
+      console.log("err:", err);
+    });
+}
 
 let pro=document.querySelector("#countinue-shopping-ahref");
 pro.addEventListener("click", function() {
