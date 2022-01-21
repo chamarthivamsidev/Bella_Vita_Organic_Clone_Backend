@@ -67,7 +67,7 @@ close_search.addEventListener("click", () => {
 });
 
 company_logo.addEventListener("click", () => {
-  window.location.href = "https://bellavitaorganic-clone.herokuapp.com/";
+  window.location.href = "https://bellavitaorganic-cloned.herokuapp.com/";
 });
 
 // variable declaration
