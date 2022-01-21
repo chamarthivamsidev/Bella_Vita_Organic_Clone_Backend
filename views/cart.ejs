@@ -72,12 +72,12 @@
                                 </div>
                             </div>
                             <div id="external-part">
-                                <div class="ui qty-box"><button onclick="decrease('<% item.Qty %>')"
+                                <div class="ui qty-box"><button onclick="decrease('<%= JSON.stringify(item) %>')"
                                         id="dec">-</button><input type="number" id="qty" value="<%= item.Qty %>"><button
-                                        onclick="increase(`<%= item.Qty %>`)" id="inc">+</button></div>
+                                        onclick="increase(`<%= item %>`)" id="inc">+</button></div>
 
-                                <div class="remove">
-                                    <button onclick="removeProduct(`<% item._id %>`)" class="left"><button type="button" class="btn-close" disabled=""
+                                <div onclick="removeProduct(`<%= item._id %>`)" class="remove">
+                                    <button class="left"><button type="button" class="btn-close" disabled=""
                                             aria-label="Close"></button>
                                         <span>Remove</span>
                                     </button>
@@ -151,36 +151,27 @@
 </body>
 
 </html>
-<script type="module">
-    import { header, header_fun } from "./components/header.js";
-    import footer from "./components/footer.js";
-
-    let header_div = document.getElementById("header_div");
-    header_div.innerHTML = header();
-
-    header_fun();
-    let footer_div = document.querySelector("footer");
-    footer_div.innerHTML = footer();
-
-</script>
 <script>
-    function increase(a) {
-        alert(++a);
+    async function increase(document) {
+        document =JSON.parse(document);
+        console.log(document)
 
     }
-    function decrease(a) {
-        alert(--a);
-    }
-    function removeProduct(documentId) {
-  fetch(`https://bellavitaorganic-cloned.herokuapp.com/cart/delete/${documentId}`, {
-    method: "DELETE",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  })
+    async function decrease(documentId) {
+        await fetch(`https://bellavitaorganic-cloned.herokuapp.com/cart/qtyd/${documentId}`)
+    
     .then((res) => {
-      return res.json();
+      // window.location.href = `https://bellavitaorganic-cloned.herokuapp.com/cart/${res.item.shopping_bag_id}`;
+      window.location.href = `https://bellavitaorganic-cloned.herokuapp.com/cart/`;
     })
+    .catch((err) => {
+      console.log("err:", err);
+    });
+
+    }
+    async function removeProduct(documentId) {
+  await fetch(`https://bellavitaorganic-cloned.herokuapp.com/cart/delete/${documentId}`)
+    
     .then((res) => {
       // window.location.href = `https://bellavitaorganic-cloned.herokuapp.com/cart/${res.item.shopping_bag_id}`;
       window.location.href = `https://bellavitaorganic-cloned.herokuapp.com/cart/`;
