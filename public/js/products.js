@@ -57,6 +57,7 @@ sort.addEventListener("click", function () {
     options.style.display = "none";
   }
 });
+
 //add to cart funtion when user click on buy now button
 let arr = JSON.parse(localStorage.getItem("cart_items")) || [];
 function addTo_cart(e) {
@@ -106,7 +107,7 @@ function horizontalGrid(data) {
     let button = document.createElement("button");
     button.innerHTML = "BUY NOW";
     button.addEventListener("click", function () {
-      addTo_cart(item);
+      addToBag(item);
     });
     div3.append(sbdiv, sbdiv2);
     info.append(div1, div2, div3, button);
@@ -158,7 +159,7 @@ two.addEventListener("click", function () {
         let bt = document.createElement("button");
         bt.innerHTML = "BUY NOW";
         bt.addEventListener("click", function () {
-          addTo_cart(item);
+          addToBag(item);
         });
         let btt = document.createElement("button");
         btt.setAttribute("class", "quk");
@@ -623,7 +624,7 @@ function filterProd(item) {
     document.querySelector(".appdiv").style.display = "block";
   }
   bt.addEventListener("click", function () {
-    addTo_cart(item);
+    addToBag(item);
   });
   let btt = document.createElement("button");
   btt.addEventListener("click", showResdiv);
@@ -750,7 +751,7 @@ function showproducts(data) {
     });
 
     bt.addEventListener("click", function () {
-      addTo_cart(item);
+      addToBag(item);
     });
     let btt = document.createElement("button");
     btt.addEventListener("click", function () {
@@ -898,6 +899,7 @@ function gotoCheck() {
 
 addToBag = async (product) => {
   alert("hello");
+  console.log("hello");
   let bagadd = document.getElementById("bagadd");
 
   if (localStorage.getItem("uid")) {
