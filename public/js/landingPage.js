@@ -90,11 +90,7 @@ create_acc_btn.addEventListener("click", () => {
 });
 
 // Redirecting to Product Page
-// header_all_pro.addEventListener("click", () => {
-//   window.location.href =
-//     "https://bellavitaorganic-cloned.herokuapp.com/products";
-// });
 header_all_pro.addEventListener("click", () => {
-  alert("clickefd");
-  window.location.href = "http://localhost:3333/products";
+  window.location.href =
+    "https://bellavitaorganic-cloned.herokuapp.com/products";
 });
