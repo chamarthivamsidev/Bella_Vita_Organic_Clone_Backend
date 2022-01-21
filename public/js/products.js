@@ -896,4 +896,78 @@ function gotoCheck() {
   localStorage.setItem("check_status", JSON.stringify(obj));
   window.location.href = "../checkout.html";
 }
+async function addToBag() {
+  alert("hello");
+  console.log("hello");
+  let bagadd = document.getElementById("bagadd");
 
+  if (localStorage.getItem("uid")) {
+    let sid = localStorage.getItem("sid");
+
+    //shud add the product to the bag
+
+    //if product already present in shopping bag then just increase the quantity of the product using patch
+
+    // 1st - find and get the document using product id & shopping bag id, get the quantity. , flag wud be length of the received collection.
+    // 2nd - patch the document and increase the quantity by 1.
+
+    let response = await fetch(
+      `https://nordstrom-cloned.herokuapp.com/shoppingBagDetails/product/${product._id}/${sid}`,
+      {
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    var res = await response.json();
+    console.log(res);
+
+    if (res.length) {
+      let response = await fetch(
+        `https://nordstrom-cloned.herokuapp.com/shoppingBagDetails/product/${res[0]._id}`,
+        {
+          method: "PATCH",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            quantity: res[0].quantity + 1,
+          }),
+        }
+      );
+
+      var res = await response.json();
+      console.log(res);
+    } else {
+      let response = await fetch(
+        "https://nordstrom-cloned.herokuapp.com/shoppingBagDetails",
+        {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            product_id: product_id,
+            shopping_bag_id: sid,
+            quantity: 1,
+            ordered_flag: false,
+          }),
+        }
+      );
+
+      var res = await response.json();
+      console.log(res);
+    }
+
+    bagadd.textContent = "Added To The Bag";
+  } else {
+    //shud be taken to sigin page
+    localStorage.setItem("recently_visited_product_id", product._id);
+    window.location.href = "/login";
+  }
+}
