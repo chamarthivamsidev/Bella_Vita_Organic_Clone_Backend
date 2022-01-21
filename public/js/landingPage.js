@@ -96,5 +96,5 @@ create_acc_btn.addEventListener("click", () => {
 // });
 header_all_pro.addEventListener("click", () => {
   alert("clickefd");
-  window.location.href = "https://localhost:3333/products";
+  window.location.href = "http://localhost:3333/products";
 });
