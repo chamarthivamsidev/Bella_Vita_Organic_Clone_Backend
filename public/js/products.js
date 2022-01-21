@@ -897,7 +897,7 @@ function gotoCheck() {
   window.location.href = "../checkout.html";
 }
 
-addToBag = async (product) => {
+async function addToBag(products) {
   alert("hello");
   console.log("hello");
   let bagadd = document.getElementById("bagadd");
@@ -971,4 +971,4 @@ addToBag = async (product) => {
     localStorage.setItem("recently_visited_product_id", product._id);
     window.location.href = "/login";
   }
-};
+}
