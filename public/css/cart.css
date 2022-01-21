@@ -277,8 +277,13 @@ input[type="number"]::-webkit-outer-spin-button {
   margin-bottom: 10px;
   font-size: 16px;
 }
+.remove {
+  text-decoration:none;
+  font-weight: 400;
+  color: rgb(143, 139, 139);
+}
 
-.remove > button {
+.remove button {
   margin-top: 10px;
   border: none;
   font-size: 0.9em;
@@ -286,8 +291,9 @@ input[type="number"]::-webkit-outer-spin-button {
   color: rgb(182, 181, 181);
   cursor: pointer;
   background-color: transparent;
+  border: solid 1px red;
 }
-.remove > button:hover {
+.remove button:hover {
   color: black;
 }
 
