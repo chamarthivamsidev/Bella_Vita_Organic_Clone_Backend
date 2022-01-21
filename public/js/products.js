@@ -1,5 +1,4 @@
 let products;
-console.log("hello");
 product();
 async function product() {
   let res = await fetch(
@@ -9,10 +8,8 @@ async function product() {
 
   products = await res.json();
   console.log(products);
-  // showproducts(products);
+  showproducts(products);
 }
-// console.log(products)
-// container_js
 
 let count = 0;
 let btn = document.querySelector(".container-fluid > button");
