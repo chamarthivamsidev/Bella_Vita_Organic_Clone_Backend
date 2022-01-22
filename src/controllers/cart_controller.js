@@ -4,20 +4,23 @@ const Bag = require("../models/cart.model");
 // const crudController = require("./crud.controller");
 const router = express.Router();
 
-const userid = typeof window !== 'undefined' ? localStorage.getItem('uid') : null
-// let userid=require("/js/cart_script.js")
-// const userid=localStorage.getItem("uid") 
-console.log(userid);
+var LocalStorage = require('node-localstorage').LocalStorage;
 
-router.get("/", async (req, res) => {
-// const userid="61ec0b8b3378d726b033eacf"
 
-  let bag = await Bag.find({userId:userid}).lean().exec();
+
+
+
+router.get("/:id", async (req, res) => {
+  // const userid="61ec0b8b3378d726b033eacf"
+  
+    let bag = await Bag.find({userId:req.params.id}).lean().exec();
+    // let bag = await Bag.find({userId:userid}).lean().exec();
     let totalval=0
     for(let i=0;i<bag.length;i++){
       totalval +=bag[i].Price*bag[i].Qty;
     }
-  return res.render("cart",{bag, totalval});
+    return res.render("cart",{bag, totalval});
+
 });
 
 // Api to delete the product and return updated list
