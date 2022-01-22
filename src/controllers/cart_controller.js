@@ -6,7 +6,7 @@ const Bag = require("../models/cart.model");
 const router = express.Router();
 
 router.get("/", async (req, res) => {
-const uid=JSON.parse(localStorage.getItem("uid"))
+const uid=localStorage.getItem("uid")
 
   let bag = await Bag.find({userId:uid}).lean().exec();
     let totalval=0
