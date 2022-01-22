@@ -171,6 +171,6 @@ async function Login() {
 // Logout
 logout.addEventListener("click", () => {
   alert("logout sucessfull");
-  localStorage.setItem("uid", null);
+  localStorage.clear();
   window.location.href = "https://bellavitaorganic-cloned.herokuapp.com/";
 });
