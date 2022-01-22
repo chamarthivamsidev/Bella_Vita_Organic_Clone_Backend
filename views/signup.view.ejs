@@ -95,24 +95,27 @@
         let password = document.getElementById("signup_password").value.trim();
 
         if (
-          fName == "" ||
-          lName == "" ||
+          fName === "" ||
+          lName === "" ||
           isValidPassword(password) == false ||
           validateEmail(email) == false
         ) {
+          if (fName === "") {
+            fName.style.borderColor = "red";
+          }
+          if (lName === "") {
+            lName.style.borderColor = "red";
+          }
+          if (isValidPassword(password) == false) {
+            password.style.borderColor = "red";
+          }
+          if (validateEmail(email) == false) {
+            email.style.borderColor = "red";
+          }
           // console.error("error in form validation");
 
-          document.getElementById("fname").setAttribute("class", "error");
-          document.getElementById("lname").setAttribute("class", "error");
-          document
-            .getElementById("signup_password")
-            .setAttribute("class", "error");
-          document
-            .getElementById("signup_email")
-            .setAttribute("class", "error");
-
-          document.getElementById("error").innerText =
-            "please enter all fields password should be alphanumeric with capital and small case letters and 1 special character.length should be atleast 6 chars long";
+          // document.getElementById("error").innerText =
+          //   "please enter all fields password should be alphanumeric with capital and small case letters and 1 special character.length should be atleast 6 chars long";
         } else {
           document.getElementById("error").innerText = null;
 
