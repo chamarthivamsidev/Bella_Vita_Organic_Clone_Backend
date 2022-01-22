@@ -7,8 +7,6 @@ const User = require("../models/user.model");
 
 const router = express.Router();
 
-<<<<<<< HEAD
-=======
 router.get("/:id", async (req, res) => {
   try {
     let user = await User.findOne({ _id: req.params.id }, { first_name: 1 })
@@ -20,7 +18,6 @@ router.get("/:id", async (req, res) => {
   }
 });
 
->>>>>>> vamsi
 router.post("/createUser", async (req, res) => {
   try {
     const salt = await bcrypt.genSalt(10);
@@ -47,17 +44,6 @@ router.post("/login", async (req, res) => {
     let pwd = req.body.password.trim();
     const user = await User.findOne({ email: username });
     if (!user) {
-<<<<<<< HEAD
-      res.send({
-        status: false,
-        error: "please enter email correctly and try again",
-      });
-    }
-    if (!(await bcrypt.compare(pwd, user.password))) {
-      res.send({
-        status: false,
-        error: "please enter password correctly and try again",
-=======
       return res.send({
         status: false,
         message: "please enter email correctly and try again",
@@ -67,7 +53,6 @@ router.post("/login", async (req, res) => {
       return res.send({
         status: false,
         message: "please enter password correctly and try again",
->>>>>>> vamsi
       });
     }
     const details = {
@@ -85,9 +70,4 @@ router.post("/login", async (req, res) => {
   }
 });
 
-<<<<<<< HEAD
-
-
-=======
->>>>>>> vamsi
 module.exports = router;

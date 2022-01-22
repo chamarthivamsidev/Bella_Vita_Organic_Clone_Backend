@@ -96,8 +96,6 @@ header_all_pro.addEventListener("click", () => {
     "https://bellavitaorganic-cloned.herokuapp.com/products";
 });
 
-<<<<<<< HEAD
-=======
 // sidenav display
 
 if (!uid) {
@@ -119,7 +117,6 @@ if (!uid) {
   }
 }
 
->>>>>>> vamsi
 // Login Authentification
 
 login_btn.addEventListener("click", () => {
@@ -132,36 +129,6 @@ async function Login() {
     password: document.getElementById("pwd").value,
   };
 
-<<<<<<< HEAD
-  login_data = JSON.stringify(login_data);
-
-  let login_api = `http://localhost:3333/users/login`;
-
-  //fetch request
-
-  let resposne = await fetch(login_api, {
-    method: "POST",
-
-    body: login_data,
-
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
-
-  let data = await resposne.json();
-  console.log("data:", data);
-
-  if (data.status === true) {
-    console.log(data.details);
-    localStorage.setItem("uid", JSON.stringify(data.details.user_id));
-    
-    alert("Done");
-  } else {
-    document.getElementById("error_message").style.visibility = "visible";
-  }
-}
-=======
   if (login_data.email === "" || login_data.password === "") {
     document.getElementById("error_message").innerHTML =
       "All fields are mandatory";
@@ -203,4 +170,3 @@ logout.addEventListener("click", () => {
   localStorage.setItem("uid", null);
   window.location.href = "http://localhost:3333/";
 });
->>>>>>> vamsi
