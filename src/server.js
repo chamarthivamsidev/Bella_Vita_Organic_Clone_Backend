@@ -24,6 +24,7 @@ app.get("/signup", async (req, res) => {
 app.use("/products", product_controller);
 app.use("/cart", cart_controller);
 app.use("/users", userController);
+<<<<<<< HEAD
 
 app.use("/addtocart", addtocart_controller);
 app.use("/checkout", async (req, res) => {
@@ -32,6 +33,8 @@ app.use("/checkout", async (req, res) => {
 app.use("/payment", async (req, res) => {
   res.render("payment.ejs", {});
 });
+=======
+>>>>>>> vamsi
 
 app.listen(process.env.PORT || 3333, async () => {
   try {
