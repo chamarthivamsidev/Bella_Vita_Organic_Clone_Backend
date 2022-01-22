@@ -3,7 +3,7 @@ const express = require("express");
 const app = express();
 const connect = require("./config/db");
 
-// const userController = require("./controllers/user.controller");
+const userController = require("./controllers/user.controller");
 const product_controller = require("./controllers/product_controller");
 const cart_controller = require("./controllers/cart_controller");
 

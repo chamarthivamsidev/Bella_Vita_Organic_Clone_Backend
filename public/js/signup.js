@@ -59,6 +59,24 @@ async function signupUser(e) {
       email: email,
       password: password,
     });
-    console.log(json);
+    // console.log(json);
+
+    let resp = await fetch("http://localhost:3333/users/createUser", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: json,
+    });
+
+    resp = await resp.json();
+
+    if (res.status === true) {
+      alert("Account created successfully");
+      window.location.href = "http://localhost:3333/";
+    } else {
+      alert("error");
+    }
   }
 }
