@@ -37,10 +37,6 @@ let company_logo = document.getElementById("company_logo");
 //   window.location.href = "./checkout.html";
 // });
 
-// view_cart.addEventListener("click", () => {
-//   window.location.href = "./cart.html";
-// });
-
 close_btn[0].addEventListener("click", () => {
   document.getElementById("mySidenav_login").style.width = "0";
 });
@@ -160,23 +156,6 @@ function displayItems(arr) {
     let del_pro = document.createElement("span");
     del_pro.setAttribute("id", "delete_pro");
 
-    // del_pro.addEventListener("click", () => {
-    //   cart_items.splice(index, 1);
-    //   localStorage.setItem("cart_items", JSON.stringify(cart_items));
-    //   let x = 0;
-    //   for (let i = 0; i < cart_items.length; i++) {
-    //     x = x + cart_items[i].Qty * cart_items[i].Price;
-    //   }
-    //   let y = 0;
-    //   y = cart_items.reduce((ac, cv) => {
-    //     return ac + Number(cv.Qty);
-    //   }, 0);
-    //   header_cart_qty.innerHTML = `${y}`;
-    //   let total_price = document.getElementById("total_price");
-    //   total_price.innerHTML = `Rs. ${x}`;
-    //   displayItems(cart_items);
-    // });
-
     let price_div = document.createElement("div");
     price_div.setAttribute("id", "header_price_div");
     price_div.innerHTML = `<span>${el.Qty} X</span> <p>Rs.${el.Price}</p>`;
@@ -188,6 +167,17 @@ function displayItems(arr) {
     sidenav_cart_items.append(item_div);
   });
 }
+// Redirecting to cart page from side navbar
+
+view_cart.addEventListener("click", () => {
+  gotoCart();
+});
+function gotoCart() {
+  let userId = localStorage.getItem("uid");
+  console.log("userid", userId);
+  window.location.href = `https://bellavitaorganic-cloned.herokuapp.com/cart/${userId}`;
+}
+
 // Login Authentification
 
 login_btn.addEventListener("click", () => {
