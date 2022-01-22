@@ -83,7 +83,7 @@ let side_navbar_cart = document.getElementById("side_navbar_cart");
 let empty_cart = document.getElementById("side_navbar_empty_cart");
 let sidenav_cart_items = document.getElementById("sidenav_cart_items");
 let header_all_pro = document.getElementById("header_all_pro");
-let uid = JSON.parse(localStorage.getItem("uid"));
+let uid = localStorage.getItem("uid");
 
 // Create Account
 create_acc_btn.addEventListener("click", () => {
@@ -100,6 +100,7 @@ header_all_pro.addEventListener("click", () => {
 
 if (!uid) {
   login.style.display = "block";
+  empty_cart.style.display = "block";
 } else {
   console.log("uid:", uid);
   getUserDetails(uid);
@@ -157,7 +158,7 @@ async function Login() {
     console.log("data:", data);
 
     if (data.status === true) {
-      localStorage.setItem("uid", JSON.stringify(data.details.user_id));
+      localStorage.setItem("uid", data.details.user_id);
       alert("Login Sucessfull");
       window.location.href = "https://bellavitaorganic-cloned.herokuapp.com/";
     } else {
