@@ -9,10 +9,8 @@ var LocalStorage = require('node-localstorage').LocalStorage;
 
 
 
-
 router.get("/:id", async (req, res) => {
   // const userid="61ec0b8b3378d726b033eacf"
-  
     let bag = await Bag.find({userId:req.params.id}).lean().exec();
     // let bag = await Bag.find({userId:userid}).lean().exec();
     let totalval=0
