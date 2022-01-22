@@ -153,12 +153,10 @@
 
 </html>
 <script>
-    async function increase(documentId, qty) {
-        console.log(documentId, qty);
-        await fetch(`https://bellavitaorganic-cloned.herokuapp.com/cart/qtyi/${documentId}`)
+    function increase(documentId, qty) {
+        fetch(`https://bellavitaorganic-cloned.herokuapp.com/cart/qtyi/${documentId}`, { method: 'PATCH' })
 
             .then((res) => {
-                // window.location.href = `https://bellavitaorganic-cloned.herokuapp.com/cart/${res.item.shopping_bag_id}`;
                 window.location.href = `https://bellavitaorganic-cloned.herokuapp.com/cart/`;
                 // window.location.href = `http://localhost:3333/cart/`;
             })
@@ -167,11 +165,13 @@
             });
     }
 
-     function decrease(documentId) {
-         fetch(`https://bellavitaorganic-cloned.herokuapp.com/cart/qtyd/${documentId}`)
+    function decrease(documentId) {
+        console.log("documentId", documentId);
+        fetch(`http://localhost:3333/cart/qtyd/${documentId}`, { method: 'PATCH' })
+            // fetch(`https://bellavitaorganic-cloned.herokuapp.com/cart/qtyd/${documentId}`,{method:'PATCH'})
 
             .then((res) => {
-                // window.location.href = `https://bellavitaorganic-cloned.herokuapp.com/cart/${res.item.shopping_bag_id}`;
+                console.log("done")
                 window.location.href = `https://bellavitaorganic-cloned.herokuapp.com/cart/`;
                 // window.location.href = `http://localhost:3333/cart/`;
             })
@@ -180,8 +180,8 @@
             });
     }
 
-     function removeProduct(documentId) {
-         fetch(`https://bellavitaorganic-cloned.herokuapp.com/cart/delete/${documentId}`)
+    function removeProduct(documentId) {
+        fetch(`https://bellavitaorganic-cloned.herokuapp.com/cart/delete/${documentId}`)
 
             .then((res) => {
                 // window.location.href = `https://bellavitaorganic-cloned.herokuapp.com/cart/${res.item.shopping_bag_id}`;
