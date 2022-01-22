@@ -51,7 +51,7 @@
 
       <p id="subHeading">Sign up for a free account at Bella Vita Organic.</p>
 
-      <div id="myForm">
+      <div id="myForm" onsubmit="signupUser(event)">
         <form id="register">
           <label class="lable">First Name</label><br />
           <input id="fname" type="text" /><br />
@@ -63,6 +63,7 @@
           <label class="lable">Your Password <sup>*</sup></label
           ><br />
           <input id="signup_password" type="password" /><br />
+          <p style="color: red" id="error"></p>
           <div class="Btn">
             <button id="btn1" type="submit">CREATE AN ACCOUNT</button>
           </div>
@@ -83,6 +84,44 @@
         const re =
           /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%#*?&])[A-Za-z\d@$!%*#?&]{6,}$/;
         return re.test(string);
+      }
+
+      async function signupUser(e) {
+        e.preventDefault();
+
+        let fName = document.getElementById("fname").value.trim();
+        let lName = document.getElementById("lname").value.trim();
+        let email = document.getElementById("signup_email").value.trim();
+        let password = document.getElementById("signup_password").value.trim();
+      }
+
+      if (
+        fName == "" ||
+        lName == "" ||
+        isValidPassword(password) == false ||
+        validateEmail(email) == false
+      ) {
+        console.error("error in form validation");
+
+        document.getElementById("fname").setAttribute("class", "error");
+        document.getElementById("lname").setAttribute("class", "error");
+        document
+          .getElementById("signup_password")
+          .setAttribute("class", "error");
+        document.getElementById("signup_email").setAttribute("class", "error");
+
+        document.getElementById("error").innerText =
+          "please enter all fields password should be alphanumeric with capital and small case letters and 1 special character.length should be atleast 6 chars long";
+      } else {
+        document.getElementById("error").innerText = null;
+
+        let json = JSON.stringify({
+          first_name: fName,
+          last_name: lName,
+          email: email,
+          password: password,
+        });
+        console.log(json);
       }
     </script>
   </body>

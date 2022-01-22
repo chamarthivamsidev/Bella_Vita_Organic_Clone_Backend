@@ -69,3 +69,10 @@ body {
   outline: none;
   border: 1px solid #ccc;
 }
+.error {
+  padding: 10px;
+  margin-left: 10px;
+  width: 90%;
+  border: 1px solid red;
+  border-bottom: 3px solid red;
+}
