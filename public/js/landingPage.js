@@ -104,12 +104,15 @@ if (!uid) {
   console.log("uid:", uid);
   getUserDetails(uid);
   async function getUserDetails(uid) {
-    const response = await fetch(`http://localhost:3333/users/${uid}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    const response = await fetch(
+      `https://bellavitaorganic-cloned.herokuapp.com/users/${uid}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
 
     const data = await response.json();
     login_name.innerHTML = `Hi, ${data.first_name}`;
@@ -136,7 +139,7 @@ async function Login() {
   } else {
     login_data = JSON.stringify(login_data);
 
-    let login_api = `http://localhost:3333/users/login`;
+    let login_api = `https://bellavitaorganic-cloned.herokuapp.com/users/login`;
 
     //fetch request
 
@@ -156,7 +159,7 @@ async function Login() {
     if (data.status === true) {
       localStorage.setItem("uid", JSON.stringify(data.details.user_id));
       alert("Login Sucessfull");
-      window.location.href = "http://localhost:3333/";
+      window.location.href = "https://bellavitaorganic-cloned.herokuapp.com/";
     } else {
       document.getElementById("error_message").innerHTML = `${data.message}`;
       document.getElementById("error_message").style.visibility = "visible";
@@ -168,5 +171,5 @@ async function Login() {
 logout.addEventListener("click", () => {
   alert("logout sucessfull");
   localStorage.setItem("uid", null);
-  window.location.href = "http://localhost:3333/";
+  window.location.href = "https://bellavitaorganic-cloned.herokuapp.com/";
 });
