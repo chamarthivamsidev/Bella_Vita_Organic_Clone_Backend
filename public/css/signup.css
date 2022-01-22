@@ -67,6 +67,7 @@ body {
 }
 #error_div {
   width: 32%;
+  text-align: justify;
 }
 #myForm input:focus {
   outline: none;
