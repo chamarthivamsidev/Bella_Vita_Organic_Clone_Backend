@@ -51,8 +51,8 @@
 
       <p id="subHeading">Sign up for a free account at Bella Vita Organic.</p>
 
-      <div id="myForm" onsubmit="signupUser(event)">
-        <form id="register">
+      <div id="myForm">
+        <form id="register" onsubmit="signupUser(event)">
           <label class="lable">First Name</label><br />
           <input id="fname" type="text" /><br />
           <label class="lable">Last Name</label><br />
@@ -63,7 +63,9 @@
           <label class="lable">Your Password <sup>*</sup></label
           ><br />
           <input id="signup_password" type="password" /><br />
-          <p style="color: red" id="error"></p>
+          <div id="error_div">
+            <p style="color: red" id="error"></p>
+          </div>
           <div class="Btn">
             <button id="btn1" type="submit">CREATE AN ACCOUNT</button>
           </div>
@@ -129,10 +131,6 @@
             document.getElementById("signup_email").style.borderColor =
               "rgb(219, 216, 216)";
           }
-          // console.error("error in form validation");
-
-          // document.getElementById("error").innerText =
-          //   "please enter all fields password should be alphanumeric with capital and small case letters and 1 special character.length should be atleast 6 chars long";
         } else {
           document.getElementById("error").innerText = null;
 
