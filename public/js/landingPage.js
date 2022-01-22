@@ -102,7 +102,6 @@ if (!uid) {
   login.style.display = "block";
   empty_cart.style.display = "block";
 } else {
-  console.log("uid:", uid);
   getUserDetails(uid);
   async function getUserDetails(uid) {
     const response = await fetch(
@@ -118,6 +117,14 @@ if (!uid) {
     const data = await response.json();
     login_name.innerHTML = `Hi, ${data.first_name}`;
     login_details.style.display = "block";
+  }
+  getCartProducts(uid);
+  async function getCartProducts(uid) {
+    let res = await fetch(
+      `https://bellavitaorganic-cloned.herokuapp.com/cart/${uid}`
+    );
+    let data = await res.json();
+    console.log("data:", data);
   }
 }
 
