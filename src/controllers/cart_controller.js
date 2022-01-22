@@ -29,15 +29,34 @@ router.get("/delete/:id", async (req, res) => {
 router.patch("/qtyi/:id", async (req, res) => {
   const bag =await Bag.findByIdAndUpdate(req.params.id, { $inc: { Qty: 1}});
   
-    return res.status(200).send(bag);
+  return res.status(200).send(bag);
 });
 
 // Api to update the product decrease qty and return updated list
 router.patch("/qtyd/:id", async (req, res) => {
-  const bag = await Bag.findByIdAndUpdate(req.params.id, { $dec: { Qty: 1}});
+  const bag =await Bag.findByIdAndUpdate(req.params.id, { $inc: { Qty: -1}});
   
-    return res.status(200).send(bag);
+  return res.status(200).send(bag);
 });
+
+
+
+
+
+
+
+
+
+// router.patch("/qtyd/:id", async (req, res) => {
+//   try{
+//     console.log("executed")
+//   const bag = await Bag.findByIdAndUpdate(req.params.id, { $inc: { Qty: 1}});
+//     return res.status(200).send(bag);
+//   }catch(err){
+//     return res.status(500).send(err.message);
+//   }
+  
+// });
 
 
 // /users
