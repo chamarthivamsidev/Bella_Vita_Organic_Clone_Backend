@@ -83,7 +83,7 @@ let side_navbar_cart = document.getElementById("side_navbar_cart");
 let empty_cart = document.getElementById("side_navbar_empty_cart");
 let sidenav_cart_items = document.getElementById("sidenav_cart_items");
 let header_all_pro = document.getElementById("header_all_pro");
-let uid = JSON.parse(localStorage.getItem("uid"));
+let uid = localStorage.getItem("uid");
 
 // Create Account
 create_acc_btn.addEventListener("click", () => {
