@@ -124,10 +124,71 @@ if (!uid) {
       `https://bellavitaorganic-cloned.herokuapp.com/cart/api/${uid}`
     );
     let data = await res.json();
-    console.log("data:", data);
+    if (data.quantity === 0) {
+      empty_cart.style.display = "block";
+    } else {
+      header_cart_qty.innerText = `${data.quantity}`;
+      side_navbar_cart.style.display = "block";
+      displayItems(data.bag);
+      let total_price = document.getElementById("total_price");
+      total_price.innerText = `Rs. ${data.totalval}`;
+    }
   }
 }
+// Displaying cart items on side navbar
+function displayItems(arr) {
+  sidenav_cart_items.innerHTML = null;
+  arr.map((el, index) => {
+    let item_div = document.createElement("div");
+    item_div.setAttribute("id", "header_item_div");
 
+    let img_div = document.createElement("div");
+    img_div.setAttribute("id", "header_img_div");
+
+    let img = document.createElement("img");
+    img.src = el.Img_url;
+
+    let content_div = document.createElement("div");
+    content_div.setAttribute("id", "header_content_div");
+
+    let title_div = document.createElement("div");
+    title_div.setAttribute("id", "header_title_div");
+
+    let name = document.createElement("p");
+    name.innerText = `${el.Name}`;
+
+    let del_pro = document.createElement("span");
+    del_pro.setAttribute("id", "delete_pro");
+    del_pro.innerHTML = `&times;`;
+
+    // del_pro.addEventListener("click", () => {
+    //   cart_items.splice(index, 1);
+    //   localStorage.setItem("cart_items", JSON.stringify(cart_items));
+    //   let x = 0;
+    //   for (let i = 0; i < cart_items.length; i++) {
+    //     x = x + cart_items[i].Qty * cart_items[i].Price;
+    //   }
+    //   let y = 0;
+    //   y = cart_items.reduce((ac, cv) => {
+    //     return ac + Number(cv.Qty);
+    //   }, 0);
+    //   header_cart_qty.innerHTML = `${y}`;
+    //   let total_price = document.getElementById("total_price");
+    //   total_price.innerHTML = `Rs. ${x}`;
+    //   displayItems(cart_items);
+    // });
+
+    let price_div = document.createElement("div");
+    price_div.setAttribute("id", "header_price_div");
+    price_div.innerHTML = `<span>${el.Qty} X</span> <p>Rs.${el.Price}</p>`;
+
+    title_div.append(name, del_pro);
+    content_div.append(title_div, price_div);
+    img_div.append(img);
+    item_div.append(img_div, content_div);
+    sidenav_cart_items.append(item_div);
+  });
+}
 // Login Authentification
 
 login_btn.addEventListener("click", () => {
