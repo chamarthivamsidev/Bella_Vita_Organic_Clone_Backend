@@ -169,8 +169,8 @@
         if(qty==1) { //if Qty find 1 then remove the product from cart becouse after decrement Qty will become 0
             removeProduct(documentId)
         }else{
-        fetch(`http://localhost:3333/cart/qtyd/${documentId}`, { method: 'PATCH' })
-            // fetch(`https://bellavitaorganic-cloned.herokuapp.com/cart/qtyd/${documentId}`,{method:'PATCH'})
+        // fetch(`http://localhost:3333/cart/qtyd/${documentId}`, { method: 'PATCH' })
+            fetch(`https://bellavitaorganic-cloned.herokuapp.com/cart/qtyd/${documentId}`,{method:'PATCH'})
 
             .then((res) => {
                 console.log("done")

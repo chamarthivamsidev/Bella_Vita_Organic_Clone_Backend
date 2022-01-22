@@ -39,31 +39,4 @@ router.patch("/qtyd/:id", async (req, res) => {
   return res.status(200).send(bag);
 });
 
-
-
-
-
-
-
-
-
-// router.patch("/qtyd/:id", async (req, res) => {
-//   try{
-//     console.log("executed")
-//   const bag = await Bag.findByIdAndUpdate(req.params.id, { $inc: { Qty: 1}});
-//     return res.status(200).send(bag);
-//   }catch(err){
-//     return res.status(500).send(err.message);
-//   }
-  
-// });
-
-
-// /users
-// router.post("", crudController(Bag).post);
-// router.get("", crudController(Bag, "users/index").get);
-// router.get("/:id", crudController(Bag).getOne);
-// router.patch("/:id", crudController(Bag, "users/index").updateOne);
-// router.delete("/:id", crudController(Bag).deleteOne);
-
 module.exports = router;
