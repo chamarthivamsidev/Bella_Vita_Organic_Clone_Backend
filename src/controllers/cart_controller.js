@@ -2,13 +2,17 @@ const express = require("express");
 const Bag = require("../models/cart.model");
 
 // const crudController = require("./crud.controller");
-
 const router = express.Router();
 
-router.get("/", async (req, res) => {
-const uid=localStorage.getItem("uid")
+const userid = typeof window !== 'undefined' ? localStorage.getItem('uid') : null
+// let userid=require("/js/cart_script.js")
+// const userid=localStorage.getItem("uid") 
+console.log(userid);
 
-  let bag = await Bag.find({userId:uid}).lean().exec();
+router.get("/", async (req, res) => {
+// const userid="61ec0b8b3378d726b033eacf"
+
+  let bag = await Bag.find({userId:userid}).lean().exec();
     let totalval=0
     for(let i=0;i<bag.length;i++){
       totalval +=bag[i].Price*bag[i].Qty;

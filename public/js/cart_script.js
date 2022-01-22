@@ -10,3 +10,5 @@ go_to_checkout.addEventListener("click", () => {
     localStorage.setItem("check_status", JSON.stringify(obj));
     window.location.href = "https://bellavitaorganic-cloned.herokuapp.com/checkout";
 });
+
+module.exports=localStorage.getItem("uid") 
