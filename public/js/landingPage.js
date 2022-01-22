@@ -121,7 +121,7 @@ if (!uid) {
   getCartProducts(uid);
   async function getCartProducts(uid) {
     let res = await fetch(
-      `https://bellavitaorganic-cloned.herokuapp.com/cart/${uid}`
+      `https://bellavitaorganic-cloned.herokuapp.com/cart/api/${uid}`
     );
     let data = await res.json();
     console.log("data:", data);
