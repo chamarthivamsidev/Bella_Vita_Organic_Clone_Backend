@@ -882,9 +882,11 @@ function closefun() {
   document.querySelector(".resDivImg").style.display = "none";
 }
 
+let userId = localStorage.getItem("uid");
 // go to cart and go to checkout function
 function gotoCart() {
-  window.location.href = "https://bellavitaorganic-cloned.herokuapp.com/cart";
+  window.location.href =
+    "https://bellavitaorganic-cloned.herokuapp.com/cart/${userId}";
 }
 function gotoCheck() {
   let obj = {
