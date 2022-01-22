@@ -181,7 +181,7 @@ function displayItems(arr) {
     price_div.setAttribute("id", "header_price_div");
     price_div.innerHTML = `<span>${el.Qty} X</span> <p>Rs.${el.Price}</p>`;
 
-    title_div.append(name, del_pro);
+    title_div.append(name);
     content_div.append(title_div, price_div);
     img_div.append(img);
     item_div.append(img_div, content_div);
