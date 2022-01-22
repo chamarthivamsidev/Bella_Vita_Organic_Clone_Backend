@@ -102,16 +102,32 @@
         ) {
           if (fName === "") {
             document.getElementById("fname").style.borderColor = "red";
+          } else {
+            document.getElementById("fname").style.borderColor =
+              "rgb(219, 216, 216)";
           }
           if (lName === "") {
             document.getElementById("lname").style.borderColor = "red";
+          } else {
+            document.getElementById("lname").style.borderColor =
+              "rgb(219, 216, 216)";
           }
           if (isValidPassword(password) == false) {
             document.getElementById("signup_password").style.borderColor =
               "red";
+            document.getElementById("error").innerText =
+              "please enter all fields password should be alphanumeric with capital and small case letters and 1 special character.length should be atleast 6 chars long and email address as name@email.com";
+          } else {
+            document.getElementById("signup_password").style.borderColor =
+              "rgb(219, 216, 216)";
           }
           if (validateEmail(email) == false) {
             document.getElementById("signup_email").style.borderColor = "red";
+            document.getElementById("error").innerText =
+              "please enter all fields password should be alphanumeric with capital and small case letters and 1 special character.length should be atleast 6 chars long and email address as name@email.com";
+          } else {
+            document.getElementById("signup_email").style.borderColor =
+              "rgb(219, 216, 216)";
           }
           // console.error("error in form validation");
 
