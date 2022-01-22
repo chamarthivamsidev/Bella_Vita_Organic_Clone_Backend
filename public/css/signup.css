@@ -65,7 +65,18 @@ body {
   padding: 0.5%;
   border: 1px solid #ccc;
 }
+#error_div {
+  width: 32%;
+  text-align: justify;
+}
 #myForm input:focus {
   outline: none;
   border: 1px solid #ccc;
+}
+.error {
+  padding: 10px;
+  margin-left: 10px;
+  width: 90%;
+  border: 1px solid red;
+  border-bottom: 3px solid red;
 }

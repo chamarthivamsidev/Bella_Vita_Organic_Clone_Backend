@@ -52,7 +52,7 @@
       <p id="subHeading">Sign up for a free account at Bella Vita Organic.</p>
 
       <div id="myForm">
-        <form id="register">
+        <form id="register" onsubmit="signupUser(event)">
           <label class="lable">First Name</label><br />
           <input id="fname" type="text" /><br />
           <label class="lable">Last Name</label><br />
@@ -63,14 +63,18 @@
           <label class="lable">Your Password <sup>*</sup></label
           ><br />
           <input id="signup_password" type="password" /><br />
+          <div id="error_div">
+            <p style="color: red" id="error"></p>
+          </div>
+          <div class="Btn">
+            <button id="btn1" type="submit">CREATE AN ACCOUNT</button>
+          </div>
         </form>
-        <div class="Btn">
-          <button id="btn1" type="submit">CREATE AN ACCOUNT</button>
-        </div>
       </div>
     </div>
     <!-- footer -->
     <%- include("footer"); %>
+    <script src="./js/landingPage.js"></script>
+    <script src="./js/signup.js"></script>
   </body>
-  <script src="./js/landingPage.js"></script>
 </html>
