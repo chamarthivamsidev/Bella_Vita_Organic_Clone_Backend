@@ -15,7 +15,7 @@ router.post("/", async (req, res) => {
     //   addedAt: { type: Date, default: Date.now },
     // });
     // await bag.save();
-    const bag = await Bag.create(req.body).lean().exec();
+    const bag = await Bag.create(req.body);
     console.log(bag);
     return res.status(200).send(bag);
   } catch (err) {
