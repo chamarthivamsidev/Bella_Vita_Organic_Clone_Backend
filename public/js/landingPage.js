@@ -74,6 +74,7 @@ company_logo.addEventListener("click", () => {
 
 let login = document.getElementById("side_navbar_login");
 let login_details = document.getElementById("side_navbar_login_details");
+let login_name = document.getElementById("login_name");
 let login_btn = document.getElementById("login_btn");
 let logout = document.getElementById("logout_btn");
 let create_acc_btn = document.getElementById("create_acc_btn");
@@ -82,8 +83,8 @@ let side_navbar_cart = document.getElementById("side_navbar_cart");
 let empty_cart = document.getElementById("side_navbar_empty_cart");
 let sidenav_cart_items = document.getElementById("sidenav_cart_items");
 let header_all_pro = document.getElementById("header_all_pro");
+let uid = JSON.parse(localStorage.getItem("uid"));
 
-login.style.display = "block";
 // Create Account
 create_acc_btn.addEventListener("click", () => {
   window.location.href = "https://bellavitaorganic-cloned.herokuapp.com/signup";
@@ -94,6 +95,27 @@ header_all_pro.addEventListener("click", () => {
   window.location.href =
     "https://bellavitaorganic-cloned.herokuapp.com/products";
 });
+
+// sidenav display
+
+if (!uid) {
+  login.style.display = "block";
+} else {
+  console.log("uid:", uid);
+  getUserDetails(uid);
+  async function getUserDetails(uid) {
+    const response = await fetch(`http://localhost:3333/users/${uid}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    const data = await response.json();
+    login_name.innerHTML = `Hi, ${data.first_name}`;
+    login_details.style.display = "block";
+  }
+}
 
 // Login Authentification
 
@@ -107,31 +129,44 @@ async function Login() {
     password: document.getElementById("pwd").value,
   };
 
-  login_data = JSON.stringify(login_data);
-
-  let login_api = `http://localhost:3333/users/login`;
-
-  //fetch request
-
-  let resposne = await fetch(login_api, {
-    method: "POST",
-
-    body: login_data,
-
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
-
-  let data = await resposne.json();
-  console.log("data:", data);
-
-  if (data.status === true) {
-    console.log(data.details);
-    localStorage.setItem("uid", JSON.stringify(data.details.user_id));
-    
-    alert("Done");
-  } else {
+  if (login_data.email === "" || login_data.password === "") {
+    document.getElementById("error_message").innerHTML =
+      "All fields are mandatory";
     document.getElementById("error_message").style.visibility = "visible";
+  } else {
+    login_data = JSON.stringify(login_data);
+
+    let login_api = `http://localhost:3333/users/login`;
+
+    //fetch request
+
+    let resposne = await fetch(login_api, {
+      method: "POST",
+
+      body: login_data,
+
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    let data = await resposne.json();
+    console.log("data:", data);
+
+    if (data.status === true) {
+      localStorage.setItem("uid", JSON.stringify(data.details.user_id));
+      alert("Login Sucessfull");
+      window.location.href = "http://localhost:3333/";
+    } else {
+      document.getElementById("error_message").innerHTML = `${data.message}`;
+      document.getElementById("error_message").style.visibility = "visible";
+    }
   }
 }
+
+// Logout
+logout.addEventListener("click", () => {
+  alert("logout sucessfull");
+  localStorage.setItem("uid", null);
+  window.location.href = "http://localhost:3333/";
+});

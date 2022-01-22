@@ -7,6 +7,17 @@ const User = require("../models/user.model");
 
 const router = express.Router();
 
+router.get("/:id", async (req, res) => {
+  try {
+    let user = await User.findOne({ _id: req.params.id }, { first_name: 1 })
+      .lean()
+      .exec();
+    return res.send(user);
+  } catch (error) {
+    return res.send({ message: err.message });
+  }
+});
+
 router.post("/createUser", async (req, res) => {
   try {
     const salt = await bcrypt.genSalt(10);
@@ -33,15 +44,15 @@ router.post("/login", async (req, res) => {
     let pwd = req.body.password.trim();
     const user = await User.findOne({ email: username });
     if (!user) {
-      res.send({
+      return res.send({
         status: false,
-        error: "please enter email correctly and try again",
+        message: "please enter email correctly and try again",
       });
     }
     if (!(await bcrypt.compare(pwd, user.password))) {
-      res.send({
+      return res.send({
         status: false,
-        error: "please enter password correctly and try again",
+        message: "please enter password correctly and try again",
       });
     }
     const details = {
@@ -58,7 +69,5 @@ router.post("/login", async (req, res) => {
     res.send({ status: false, message: err.messgae });
   }
 });
-
-
 
 module.exports = router;
