@@ -63,14 +63,27 @@
           <label class="lable">Your Password <sup>*</sup></label
           ><br />
           <input id="signup_password" type="password" /><br />
+          <div class="Btn">
+            <button id="btn1" type="submit">CREATE AN ACCOUNT</button>
+          </div>
         </form>
-        <div class="Btn">
-          <button id="btn1" type="submit">CREATE AN ACCOUNT</button>
-        </div>
       </div>
     </div>
     <!-- footer -->
     <%- include("footer"); %>
+    <script src="./js/landingPage.js"></script>
+    <script>
+      function validateEmail(email) {
+        const re =
+          /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(String(email).toLowerCase());
+      }
+
+      function isValidPassword(string) {
+        const re =
+          /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%#*?&])[A-Za-z\d@$!%*#?&]{6,}$/;
+        return re.test(string);
+      }
+    </script>
   </body>
-  <script src="./js/landingPage.js"></script>
 </html>
