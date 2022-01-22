@@ -11,10 +11,6 @@ app.use(express.json());
 app.set("view engine", "ejs"); // root directory for views views/
 app.use(express.static("public"));
 
-// app.use("/users", userController);
-// app.get("/", function (req, res) {
-//   res.render("index.ejs", {});
-// });
 app.get("/", function (req, res) {
   res.render("landingPage.ejs", {});
 });
@@ -25,6 +21,7 @@ app.get("/signup", async (req, res) => {
 
 app.use("/products", product_controller);
 app.use("/cart", cart_controller);
+app.use("/users", userController);
 
 app.listen(process.env.PORT || 3333, async () => {
   try {
