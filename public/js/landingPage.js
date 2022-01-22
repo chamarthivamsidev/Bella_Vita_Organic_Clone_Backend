@@ -27,8 +27,6 @@ let search_box = document.getElementById("search_box");
 let close_search = document.getElementById("close_search");
 let company_logo = document.getElementById("company_logo");
 
-
-
 // let check_status = JSON.parse(localStorage.getItem("check_status"));
 
 // checkout_btn.addEventListener("click", () => {
@@ -69,7 +67,7 @@ close_search.addEventListener("click", () => {
 });
 
 company_logo.addEventListener("click", () => {
-  window.location.href = "https://bellavitaorganic-clone.herokuapp.com/";
+  window.location.href = "https://bellavitaorganic-cloned.herokuapp.com/";
 });
 
 // variable declaration
@@ -89,4 +87,10 @@ login.style.display = "block";
 // Create Account
 create_acc_btn.addEventListener("click", () => {
   window.location.href = "https://bellavitaorganic-cloned.herokuapp.com/signup";
+});
+
+// Redirecting to Product Page
+header_all_pro.addEventListener("click", () => {
+  window.location.href =
+    "https://bellavitaorganic-cloned.herokuapp.com/products";
 });
