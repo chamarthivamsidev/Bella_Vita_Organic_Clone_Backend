@@ -1,3 +1,5 @@
+const { response } = require("express");
+
 function validateEmail(email) {
   const re =
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -61,7 +63,7 @@ async function signupUser(e) {
     });
     // console.log(json);
 
-    let resp = await fetch("http://localhost:3333/users/createUser", {
+    let response = await fetch("http://localhost:3333/users/createUser", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -70,9 +72,9 @@ async function signupUser(e) {
       body: json,
     });
 
-    resp = await resp.json();
+    response = await response.json();
 
-    if (res.status === true) {
+    if (response.status === true) {
       alert("Account created successfully");
       window.location.href = "http://localhost:3333/";
     } else {
