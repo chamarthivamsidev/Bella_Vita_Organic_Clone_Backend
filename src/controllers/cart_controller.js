@@ -6,7 +6,10 @@ const Bag = require("../models/cart.model");
 const router = express.Router();
 
 router.get("/", async (req, res) => {
-  let bag = await Bag.find().lean().exec();
+// const uid=localStorage.getItem("uid") || "61e96dd4211da9ebc1b7a8c4";
+const uid="61e96dd4211da9ebc1b7a8c4";
+
+  let bag = await Bag.find({userId:uid}).lean().exec();
     let totalval=0
     for(let i=0;i<bag.length;i++){
       totalval +=bag[i].Price*bag[i].Qty;
@@ -22,13 +25,19 @@ router.get("/delete/:id", async (req, res) => {
     return res.status(200).send(bag);
 });
 
-// Api to update the product qty and return updated list
-router.patch("/qty/:id", async (req, res) => {
-  let bag= await await Bag.findByIdAndUpdate(req.params.id, { $inc: { Qty: 1}});
+// Api to update the product increase qty and return updated list
+router.patch("/qtyi/:id", async (req, res) => {
+  const bag =await Bag.findByIdAndUpdate(req.params.id, { $inc: { Qty: 1}});
   
     return res.status(200).send(bag);
 });
 
+// Api to update the product decrease qty and return updated list
+router.patch("/qtyd/:id", async (req, res) => {
+  const bag = await Bag.findByIdAndUpdate(req.params.id, { $dec: { Qty: 1}});
+  
+    return res.status(200).send(bag);
+});
 
 
 // /users
