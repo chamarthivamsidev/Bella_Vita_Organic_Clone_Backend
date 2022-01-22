@@ -157,8 +157,8 @@
         fetch(`https://bellavitaorganic-cloned.herokuapp.com/cart/qtyi/${documentId}`, { method: 'PATCH' })
 
             .then((res) => {
-                window.location.href = `https://bellavitaorganic-cloned.herokuapp.com/cart/`;
-                // window.location.href = `http://localhost:3333/cart/`;
+                let userid=localStorage.getItem('uid');
+                window.location.href = `https://bellavitaorganic-cloned.herokuapp.com/cart/${userid}`;
             })
             .catch((err) => {
                 console.log("err:", err);
@@ -174,8 +174,8 @@
 
                 .then((res) => {
                     console.log("done")
-                    window.location.href = `https://bellavitaorganic-cloned.herokuapp.com/cart/`;
-                    // window.location.href = `http://localhost:3333/cart/`;
+                    let userid=localStorage.getItem('uid');
+                    window.location.href = `https://bellavitaorganic-cloned.herokuapp.com/cart/${userid}`;
                 })
                 .catch((err) => {
                     console.log("err:", err);
@@ -188,25 +188,13 @@
 
             .then((res) => {
                 // window.location.href = `https://bellavitaorganic-cloned.herokuapp.com/cart/${res.item.shopping_bag_id}`;
-                window.location.href = `https://bellavitaorganic-cloned.herokuapp.com/cart/`;
+                let userid=localStorage.getItem('uid');
+                window.location.href = `https://bellavitaorganic-cloned.herokuapp.com/cart/${userid}`;
             })
             .catch((err) => {
                 console.log("err:", err);
             });
     }
-
-    // // checkout button -On click switch to checkout page
-    // let go_to_checkout = document.getElementById("go_to_checkout");
-    // go_to_checkout.addEventListener("click", () => {
-    //     let obj = {
-    //         cart: 0,
-    //         delivery: 1,
-    //         cod: 0,
-    //         payment: 0,
-    //     };
-    //     localStorage.setItem("check_status", JSON.stringify(obj));
-    //     window.location.href = "https://bellavitaorganic-cloned.herokuapp.com/checkout";
-    // });
 
 </script>
 <script src="/js/landingPageSlider.js"></script>
