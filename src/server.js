@@ -26,6 +26,12 @@ app.use("/cart", cart_controller);
 app.use("/users", userController);
 
 app.use("/addtocart", addtocart_controller);
+app.use("/checkout", async (req, res) => {
+  res.render("checkout.ejs", {});
+});
+app.use("/payment", async (req, res) => {
+  res.render("payment.ejs", {});
+});
 
 app.listen(process.env.PORT || 3333, async () => {
   try {
