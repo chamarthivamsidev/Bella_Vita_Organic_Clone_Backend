@@ -94,3 +94,44 @@ header_all_pro.addEventListener("click", () => {
   window.location.href =
     "https://bellavitaorganic-cloned.herokuapp.com/products";
 });
+
+// Login Authentification
+
+login_btn.addEventListener("click", () => {
+  Login();
+});
+
+async function Login() {
+  let login_data = {
+    email: document.getElementById("email").value,
+    password: document.getElementById("pwd").value,
+  };
+
+  login_data = JSON.stringify(login_data);
+
+  let login_api = `http://localhost:3333/users/login`;
+
+  //fetch request
+
+  let resposne = await fetch(login_api, {
+    method: "POST",
+
+    body: login_data,
+
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  let data = await resposne.json();
+  console.log("data:", data);
+
+  if (data.status === true) {
+    console.log(data.details);
+    localStorage.setItem("uid", JSON.stringify(data.details.user_id));
+    
+    alert("Done");
+  } else {
+    document.getElementById("error_message").style.visibility = "visible";
+  }
+}
