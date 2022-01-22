@@ -155,19 +155,7 @@
 <script>
     async function increase(documentId, qty) {
         console.log(documentId, qty);
-        await fetch(`https://bellavitaorganic-cloned.herokuapp.com/cart/qty/${documentId}`)
-
-            .then((res) => {
-                // window.location.href = `https://bellavitaorganic-cloned.herokuapp.com/cart/${res.item.shopping_bag_id}`;
-                window.location.href = `https://bellavitaorganic-cloned.herokuapp.com/cart/`;
-                // window.location.href = `http://localhost:3333/cart/`;
-            })
-            .catch((err) => {
-                console.log("err:", err);
-            });
-    }
-    async function decrease(documentId) {
-        await fetch(`https://bellavitaorganic-cloned.herokuapp.com/cart/qty/${documentId}`)
+        await fetch(`https://bellavitaorganic-cloned.herokuapp.com/cart/qtyi/${documentId}`)
 
             .then((res) => {
                 // window.location.href = `https://bellavitaorganic-cloned.herokuapp.com/cart/${res.item.shopping_bag_id}`;
@@ -179,8 +167,21 @@
             });
     }
 
-    async function removeProduct(documentId) {
-        await fetch(`https://bellavitaorganic-cloned.herokuapp.com/cart/delete/${documentId}`)
+     function decrease(documentId) {
+         fetch(`https://bellavitaorganic-cloned.herokuapp.com/cart/qtyd/${documentId}`)
+
+            .then((res) => {
+                // window.location.href = `https://bellavitaorganic-cloned.herokuapp.com/cart/${res.item.shopping_bag_id}`;
+                window.location.href = `https://bellavitaorganic-cloned.herokuapp.com/cart/`;
+                // window.location.href = `http://localhost:3333/cart/`;
+            })
+            .catch((err) => {
+                console.log("err:", err);
+            });
+    }
+
+     function removeProduct(documentId) {
+         fetch(`https://bellavitaorganic-cloned.herokuapp.com/cart/delete/${documentId}`)
 
             .then((res) => {
                 // window.location.href = `https://bellavitaorganic-cloned.herokuapp.com/cart/${res.item.shopping_bag_id}`;
@@ -193,3 +194,4 @@
 </script>
 <script src="/js/landingPageSlider.js"></script>
 <script src="/js/cart_script.js"></script>
+<script src="/js/landingPage.js"></script>
