@@ -894,8 +894,7 @@ function gotoCheck() {
     payment: 0,
   };
   localStorage.setItem("check_status", JSON.stringify(obj));
-  window.location.href =
-    "https://bellavitaorganic-cloned.herokuapp.com/checkout";
+  window.location.href ="https://bellavitaorganic-cloned.herokuapp.com/checkout";
 }
 
 async function addToBag(item) {
