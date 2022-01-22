@@ -165,8 +165,10 @@
             });
     }
 
-    function decrease(documentId) {
-        console.log("documentId", documentId);
+    function decrease(documentId, qty) {
+        if(qty==1) { //if Qty find 1 then remove the product from cart becouse after decrement Qty will become 0
+            removeProduct(documentId)
+        }else{
         fetch(`http://localhost:3333/cart/qtyd/${documentId}`, { method: 'PATCH' })
             // fetch(`https://bellavitaorganic-cloned.herokuapp.com/cart/qtyd/${documentId}`,{method:'PATCH'})
 
@@ -178,7 +180,7 @@
             .catch((err) => {
                 console.log("err:", err);
             });
-    }
+    }}
 
     function removeProduct(documentId) {
         fetch(`https://bellavitaorganic-cloned.herokuapp.com/cart/delete/${documentId}`)
