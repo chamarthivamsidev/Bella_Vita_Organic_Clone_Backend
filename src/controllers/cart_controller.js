@@ -22,10 +22,12 @@ router.get("/api/:id", async (req, res) => {
   let bag = await Bag.find({ userId: req.params.id }).lean().exec();
   // let bag = await Bag.find({userId:userid}).lean().exec();
   let totalval = 0;
+  let quality = 0;
   for (let i = 0; i < bag.length; i++) {
     totalval += bag[i].Price * bag[i].Qty;
+    quantity += bag[i].Qty;
   }
-  let quantity = bag.length;
+
   return res.send({ bag: bag, totalval: totalval, quantity: quantity });
 });
 
