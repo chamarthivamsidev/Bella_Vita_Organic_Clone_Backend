@@ -149,9 +149,20 @@
   .main-container {
     width: 96%;
   }
+  .remove{
+    display: none;
+  }
+  .head-item-name{
+    /* border:1px solid red; */
+    height: 100px;
+    overflow:hidden;
+  }
 }
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 395px) {
   .bella-cash {
+    display: none;
+  }
+  .remove{
     display: none;
   }
 }
@@ -306,7 +317,7 @@ input[type="number"]::-webkit-outer-spin-button {
 /* remove button position */
 .remove {
   position: relative;
-  left: 150px;
+  left: 10vw;
   top: 140px;
 }
 /* qty position control */
