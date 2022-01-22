@@ -1,5 +1,3 @@
-const { response } = require("express");
-
 function validateEmail(email) {
   const re =
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -73,10 +71,11 @@ async function signupUser(e) {
     });
 
     response = await response.json();
+    // console.log("response:", response);
 
     if (response.status === true) {
       alert("Account created successfully");
-      window.location.href = "http://localhost:3333/";
+      //   window.location.href = "http://localhost:3333/";
     } else {
       alert("error");
     }
