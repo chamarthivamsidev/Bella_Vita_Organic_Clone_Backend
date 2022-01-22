@@ -157,9 +157,8 @@ function displayItems(arr) {
     let name = document.createElement("p");
     name.innerText = `${el.Name}`;
 
-    // let del_pro = document.createElement("span");
-    // del_pro.setAttribute("id", "delete_pro");
-    // del_pro.innerHTML = `&times;`;
+    let del_pro = document.createElement("span");
+    del_pro.setAttribute("id", "delete_pro");
 
     // del_pro.addEventListener("click", () => {
     //   cart_items.splice(index, 1);
