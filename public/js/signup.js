@@ -61,21 +61,24 @@ async function signupUser(e) {
     });
     // console.log(json);
 
-    let response = await fetch("http://localhost:3333/users/createUser", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: json,
-    });
+    let response = await fetch(
+      "https://bellavitaorganic-cloned.herokuapp.com/users/createUser",
+      {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: json,
+      }
+    );
 
     response = await response.json();
     // console.log("response:", response);
 
     if (response.status === true) {
       alert("Account created successfully");
-      //   window.location.href = "http://localhost:3333/";
+      window.location.href = "https://bellavitaorganic-cloned.herokuapp.com/";
     } else {
       alert("error");
     }
