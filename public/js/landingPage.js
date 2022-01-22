@@ -97,7 +97,7 @@ header_all_pro.addEventListener("click", () => {
 });
 
 // sidenav display
-
+console.log(!uid);
 if (!uid) {
   login.style.display = "block";
   empty_cart.style.display = "block";
