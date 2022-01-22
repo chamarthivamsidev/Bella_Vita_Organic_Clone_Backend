@@ -27,7 +27,11 @@ app.use("/users", userController);
 
 app.use("/addtocart", addtocart_controller);
 app.use("/checkout", async (req, res) => {
-  res.render("checkout.ejs", {});
+  try {
+    res.render("checkout.ejs", {});
+  } catch (err) {
+    return res.send(err.message);
+  }
 });
 app.use("/payment", async (req, res) => {
   res.render("payment.ejs", {});
