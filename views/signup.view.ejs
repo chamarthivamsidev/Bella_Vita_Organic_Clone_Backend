@@ -101,16 +101,17 @@
           validateEmail(email) == false
         ) {
           if (fName === "") {
-            fName.style.borderColor = "red";
+            document.getElementById("fname").style.borderColor = "red";
           }
           if (lName === "") {
-            lName.style.borderColor = "red";
+            document.getElementById("lname").style.borderColor = "red";
           }
           if (isValidPassword(password) == false) {
-            password.style.borderColor = "red";
+            document.getElementById("signup_password").style.borderColor =
+              "red";
           }
           if (validateEmail(email) == false) {
-            email.style.borderColor = "red";
+            document.getElementById("signup_email").style.borderColor = "red";
           }
           // console.error("error in form validation");
 
