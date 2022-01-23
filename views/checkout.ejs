@@ -94,26 +94,6 @@
   var cart_items;
   var data;
   let uid = localStorage.getItem("uid");
-  getCartProducts(uid);
-  async function getCartProducts(uid) {
-    // console.log("hey");
-    let res = await fetch(
-      `https://bellavitaorganic-cloned.herokuapp.com/cart/api/${uid}`
-    );
-    data = await res.json();
-    // console.log("data:", data);
-    cart_items = data.bag;
-    console.log(cart_items);
-    // if (data.quantity === 0) {
-    //   empty_cart.style.display = "block";
-    // } else {
-    //   header_cart_qty.innerText = `${data.quantity}`;
-    //   side_navbar_cart.style.display = "block";
-    //   displayItems(data.bag);
-    //   let total_price = document.getElementById("total_price");
-    //   total_price.innerText = `Rs. ${data.totalval}`;
-    // }
-  }
 
   // let u_address = JSON.parse(localStorage.getItem("user_address"));
   // let user_address = u_address.join(",");
@@ -122,14 +102,6 @@
   let delivery_page = document.getElementById("delivery_page");
   let prepaid_page = document.getElementById("prepaid_page");
   let payment_page = document.getElementById("payment_page");
-
-  // let obj = {
-  //   cart: 0,
-  //   delivery: 1,
-  //   cod: 0,
-  //   payment: 0,
-  // };
-  // check_status;
 
   // checkout status
   cart_page.addEventListener("click", () => {
@@ -242,17 +214,17 @@
   var sub_total = document.getElementById("sub_total");
   var sub_total_bottom = document.getElementById("tdb_amount");
 
-  // let x = 0;
-  // for (let i = 0; i < cart_items.length; i++) {
-  //   if (cart_items[i].Amount === undefined) {
-  //     x = x + Number(cart_items[i].Qty) * Number(cart_items[i].Price);
-  //   } else {
-  //     x = x + Number(cart_items[i].Amount);
-  //   }
-  // }
-  console.log("data:", data);
-  sub_total.innerText = `₹ ${data.totalval}.00`;
-  sub_total_bottom.innerText = `<span>INR</span> ₹${data.totalval}.00`;
+  getCartProducts(uid);
+  async function getCartProducts(uid) {
+    let res = await fetch(
+      `https://bellavitaorganic-cloned.herokuapp.com/cart/api/${uid}`
+    );
+    data = await res.json();
+    cart_items = data.bag;
+    console.log("data:", data);
+    sub_total.innerText = `₹ ${data.totalval}.00`;
+    sub_total_bottom.innerText = `<span>INR</span> ₹${data.totalval}.00`;
 
-  content(cart_items, item_div, sub_total, sub_total_bottom);
+    content(cart_items, item_div, sub_total, sub_total_bottom);
+  }
 </script>
