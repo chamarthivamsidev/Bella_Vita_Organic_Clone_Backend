@@ -115,12 +115,7 @@ function content(cart_items, location, sub_total, sub_total_bottom, uid) {
 
       let price = document.createElement("div");
       price.setAttribute("id", "item_price");
-
-      if (el.Amount === undefined) {
-        price.innerHTML = `₹${el.Price}.00`;
-      } else {
-        price.innerHTML = `₹${el.Amount}.00`;
-      }
+      price.innerHTML = `₹${el.Price * el.Qty}.00`;
 
       price_div.append(delete_icon, price);
       count_div.append(decre, count_value, incre);
