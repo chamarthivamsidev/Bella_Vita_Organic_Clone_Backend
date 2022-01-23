@@ -117,7 +117,7 @@ function content(cart_items, location, sub_total, sub_total_bottom, uid) {
 }
 
 // form validation
-async function formValidate() {
+async function formValidate(uid) {
   let submit = document.getElementById("btn");
   submit.addEventListener("click", () => {
     let check_status = JSON.parse(localStorage.getItem("check_status"));
