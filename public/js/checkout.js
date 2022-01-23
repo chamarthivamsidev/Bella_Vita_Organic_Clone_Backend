@@ -117,7 +117,7 @@ function content(cart_items, location, sub_total, sub_total_bottom, uid) {
 }
 
 // form validation
-async function formValidate(uid) {
+function formValidate(uid) {
   let submit = document.getElementById("btn");
   submit.addEventListener("click", () => {
     let check_status = JSON.parse(localStorage.getItem("check_status"));
@@ -156,31 +156,34 @@ async function formValidate(uid) {
         pincode.value,
         phone.value
       );
-      let user_str = address.join(",");
-      let userAdd = {
-        user_id: uid,
-        address: user_str,
-      };
+      sendAdd(uid);
+      async function sendAdd(uid) {
+        let user_str = address.join(",");
+        let userAdd = {
+          user_id: uid,
+          address: user_str,
+        };
 
-      let user_add = JSON.stringify(userAdd);
-      console.log("user_add:", user_add);
+        let user_add = JSON.stringify(userAdd);
+        console.log("user_add:", user_add);
 
-      let add_api = `https://bellavitaorganic-cloned.herokuapp.com/address`;
+        let add_api = `https://bellavitaorganic-cloned.herokuapp.com/address`;
 
-      //fetch request
+        //fetch request
 
-      let res = await fetch(add_api, {
-        method: "POST",
+        let res = await fetch(add_api, {
+          method: "POST",
 
-        body: user_add,
+          body: user_add,
 
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
 
-      let data = await res.json();
-      console.log("data:", data);
+        let data = await res.json();
+        console.log("data:", data);
+      }
 
       //   console.log(address);
       // localStorage.setItem("user_address", JSON.stringify(address));
