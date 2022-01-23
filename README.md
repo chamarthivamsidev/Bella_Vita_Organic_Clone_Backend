@@ -2,7 +2,7 @@
 
 ![Build Status](https://cdn.hashnode.com/res/hashnode/image/upload/v1639927185177/diTNoIr4q.png?w=1600&h=840&fit=crop&crop=entropy&auto=compress)
 
-Bella Vita Organic, Inc. is an Indian Health care Organic store. Founded in 2005 by W. Verman and F. Walia, it originated as a Organic Products store and evolved into a full-line retailer with departments for Hair Oil, Skin Care, Body Care, cosmetics, and fragrances..
+Bella Vita Organic, Inc. is an Indian Health care Organic store. Founded in 2005 by W. Verman and F. Walia, it originated as a Organic Products store and evolved into a full-line retailer with departments for Hair Care, Skin Care, Body Care, cosmetics, and fragrances..
 
 ---
 
