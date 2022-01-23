@@ -121,7 +121,7 @@ function formValidate(uid) {
   let submit = document.getElementById("btn");
   submit.addEventListener("click", () => {
     let check_status = JSON.parse(localStorage.getItem("check_status"));
-    console.log("check_status:", check_status);
+
     let fname = document.getElementById("floatingInput1");
     let lname = document.getElementById("floatingInput2");
     let location = document.getElementById("floatingInput3");
@@ -184,15 +184,12 @@ function formValidate(uid) {
         let data = await res.json();
         console.log("data:", data);
       }
-
-      //   console.log(address);
-      // localStorage.setItem("user_address", JSON.stringify(address));
-      // check_status.cod = "1";
-      // check_status.delivery = "0";
-      // check_status.cart = "0";
-      // check_status.payment = "0";
-      // localStorage.setItem("check_status", JSON.stringify(check_status));
-      // document.location.reload();
+      check_status.cod = "1";
+      check_status.delivery = "0";
+      check_status.cart = "0";
+      check_status.payment = "0";
+      localStorage.setItem("check_status", JSON.stringify(check_status));
+      window.location.href = `https://bellavitaorganic-cloned.herokuapp.com/checkout`;
     }
     fname.value === ""
       ? (fname.style.borderColor = "red")

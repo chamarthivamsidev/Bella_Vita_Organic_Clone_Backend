@@ -152,8 +152,8 @@
     let container_left_bottom = document.getElementById(
       "container_left_bottom"
     );
-    let u_address = JSON.parse(localStorage.getItem("user_address"));
-    let user_address = u_address.join(",");
+    // let u_address = JSON.parse(localStorage.getItem("user_address"));
+    // let user_address = u_address.join(",");
     container_left_bottom.innerHTML = prepaid_content();
     let btn_prepaid = document.getElementById("btn_prepaid");
     let shipping_address = document.getElementById("shipping_address");
@@ -173,7 +173,7 @@
           : (check_status[key] = "0");
       }
       localStorage.setItem("check_status", JSON.stringify(check_status));
-      document.location.reload();
+      window.location.href = `https://bellavitaorganic-cloned.herokuapp.com/checkout`;
     });
   } else if (check_status.payment == 1) {
     let container_left_bottom = document.getElementById(
