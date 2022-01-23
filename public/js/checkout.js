@@ -178,6 +178,7 @@ async function formValidate(uid) {
 
           headers: {
             "Content-Type": "application/json",
+            Accept: "application/json",
           },
         }
       );
