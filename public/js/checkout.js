@@ -126,7 +126,7 @@ function content(cart_items, location, sub_total, sub_total_bottom, uid) {
 }
 
 // form validation
-function formValidate() {
+async function formValidate() {
   let submit = document.getElementById("btn");
   submit.addEventListener("click", () => {
     let check_status = JSON.parse(localStorage.getItem("check_status"));
@@ -165,14 +165,39 @@ function formValidate() {
         pincode.value,
         phone.value
       );
+      let user_str = address.join(",");
+      let user_address = {
+        user_id: uid,
+        address: user_str,
+      };
+
+      user_address = JSON.stringify(user_address);
+
+      let user_api = `https://bellavitaorganic-cloned.herokuapp.com/address`;
+
+      //fetch request
+
+      let resposne = await fetch(user_api, {
+        method: "POST",
+
+        body: user_address,
+
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      let data = await resposne.json();
+      console.log("data:", data);
+
       //   console.log(address);
-      localStorage.setItem("user_address", JSON.stringify(address));
-      check_status.cod = "1";
-      check_status.delivery = "0";
-      check_status.cart = "0";
-      check_status.payment = "0";
-      localStorage.setItem("check_status", JSON.stringify(check_status));
-      document.location.reload();
+      // localStorage.setItem("user_address", JSON.stringify(address));
+      // check_status.cod = "1";
+      // check_status.delivery = "0";
+      // check_status.cart = "0";
+      // check_status.payment = "0";
+      // localStorage.setItem("check_status", JSON.stringify(check_status));
+      // document.location.reload();
     }
     fname.value === ""
       ? (fname.style.borderColor = "red")
