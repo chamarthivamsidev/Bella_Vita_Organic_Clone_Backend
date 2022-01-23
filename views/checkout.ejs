@@ -223,8 +223,8 @@
     cart_items = data.bag;
     console.log("data:", data);
     sub_total.innerText = `₹ ${data.totalval}.00`;
-    sub_total_bottom.innerText = `<span>INR</span> ₹${data.totalval}.00`;
+    sub_total_bottom.innerHTML = `<span>INR</span> ₹${data.totalval}.00`;
 
-    content(cart_items, item_div, sub_total, sub_total_bottom);
+    content(cart_items, item_div, sub_total, sub_total_bottom, uid);
   }
 </script>

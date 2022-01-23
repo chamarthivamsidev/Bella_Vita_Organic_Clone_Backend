@@ -9,7 +9,10 @@ const router = express.Router();
 
 router.get("/:id", async (req, res) => {
   try {
-    let user = await User.findOne({ _id: req.params.id }, { first_name: 1 })
+    let user = await User.findOne(
+      { _id: req.params.id },
+      { first_name: 1, email: 1 }
+    )
       .lean()
       .exec();
     return res.send(user);

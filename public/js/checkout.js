@@ -1,8 +1,22 @@
-function content(cart_items, location, sub_total, sub_total_bottom) {
-  let checkout_user_details = document.getElementById("checkout_user_details");
-  // let arr = JSON.parse(localStorage.getItem("login_status"));
+function content(cart_items, location, sub_total, sub_total_bottom, uid) {
+  getUserDetails(uid);
+  async function getUserDetails(uid) {
+    const response = await fetch(
+      `https://bellavitaorganic-cloned.herokuapp.com/users/${uid}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
 
-  // checkout_user_details.innerHTML = `${arr[0].name}(${arr[0].email})`;
+    const data = await response.json();
+    let checkout_user_details = document.getElementById(
+      "checkout_user_details"
+    );
+    checkout_user_details.innerHTML = `${data.first_name}(${data.email})`;
+  }
 
   display(cart_items);
 
