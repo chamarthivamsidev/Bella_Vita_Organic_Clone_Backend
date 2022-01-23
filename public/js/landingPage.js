@@ -26,8 +26,7 @@ let search_icon = document.getElementById("header_search");
 let search_box = document.getElementById("search_box");
 let close_search = document.getElementById("close_search");
 let company_logo = document.getElementById("company_logo");
-
-// let check_status = JSON.parse(localStorage.getItem("check_status"));
+let check_status = JSON.parse(localStorage.getItem("check_status"));
 
 // checkout_btn.addEventListener("click", () => {
 //   for (let key in check_status) {
@@ -36,7 +35,7 @@ let company_logo = document.getElementById("company_logo");
 //   localStorage.setItem("check_status", JSON.stringify(check_status));
 //   window.location.href = "./checkout.html";
 // });
-
+console.log(check_status);
 close_btn[0].addEventListener("click", () => {
   document.getElementById("mySidenav_login").style.width = "0";
 });
