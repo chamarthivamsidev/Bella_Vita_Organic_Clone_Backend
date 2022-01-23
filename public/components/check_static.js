@@ -186,7 +186,7 @@ function prepaid_content() {
         <h2 class="contact_title">SHIP TO</h2>
         <hr class="contact_hr" />
         <div id="shipping_add">
-          <p id="shipping_address">vamsichamarthi1147@gmail.com</p>
+          <p id="shipping_address"></p>
           <p class="change">Change</p>
         </div>
       </div>

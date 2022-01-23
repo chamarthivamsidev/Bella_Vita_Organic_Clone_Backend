@@ -177,13 +177,14 @@
 
       let data = await res.json();
       console.log("data:", data);
+      shipping_address.innerHTML = `${data.address.address}`;
     }
 
     prepaid_dot.classList.toggle("toggle");
     delivery_cicle.style.boxShadow = "none";
     prepaid_circle.style.boxShadow = "0 0 21px rgb(59 179 0)";
     prepaid_circle.style.backgroundColor = "#52b359";
-    // shipping_address.innerHTML = `${u_address}`;
+
     btn_prepaid.addEventListener("click", () => {
       for (let key in check_status) {
         key == "payment"
