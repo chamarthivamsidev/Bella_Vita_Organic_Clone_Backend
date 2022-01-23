@@ -171,23 +171,23 @@ async function formValidate() {
         address: user_str,
       };
 
-      user_address = JSON.stringify(user_address);
+      let user_add = JSON.stringify(user_address);
 
       let user_api = `https://bellavitaorganic-cloned.herokuapp.com/address`;
 
       //fetch request
 
-      let resposne = await fetch(user_api, {
+      let res = await fetch(user_api, {
         method: "POST",
 
-        body: user_address,
+        body: user_add,
 
         headers: {
           "Content-Type": "application/json",
         },
       });
 
-      let data = await resposne.json();
+      let data = await res.json();
       console.log("data:", data);
 
       //   console.log(address);
