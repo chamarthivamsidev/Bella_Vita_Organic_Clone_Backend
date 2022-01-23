@@ -51,21 +51,21 @@ function content(cart_items, location, sub_total, sub_total_bottom, uid) {
       decre.innerHTML = `-`;
 
       decre.addEventListener("click", () => {
-        let q = cart_items[index].Qty;
-        let p = cart_items[index].Price;
-        if (q > 1) {
-          q--;
-          cart_items[index].Qty = q;
-          qty.innerHTML = `${q}`;
-          count_value.innerHTML = `${q}`;
-          price.innerHTML = `₹${p * q}.00`;
-          cart_items[index].Amount = `${p * q}`;
-          let x = cart_items.reduce((ac, cv) => {
-            return ac + Number(cv.Amount);
-          }, 0);
-          sub_total.innerHTML = `₹ ${x}.00`;
-          sub_total_bottom.innerHTML = `<span>INR</span> ₹${x}.00`;
-          localStorage.setItem("cart_items", JSON.stringify(cart_items));
+        if (el.Qty > 1) {
+          decrease(el._id);
+
+          function decrease(documentId) {
+            fetch(
+              `https://bellavitaorganic-cloned.herokuapp.com/cart/qtyd/${documentId}`,
+              { method: "PATCH" }
+            )
+              .then((res) => {
+                window.location.href = `https://bellavitaorganic-cloned.herokuapp.com/checkout`;
+              })
+              .catch((err) => {
+                console.log("err:", err);
+              });
+          }
         }
       });
 
@@ -85,29 +85,12 @@ function content(cart_items, location, sub_total, sub_total_bottom, uid) {
             { method: "PATCH" }
           )
             .then((res) => {
-              let userid = localStorage.getItem("uid");
               window.location.href = `https://bellavitaorganic-cloned.herokuapp.com/checkout`;
             })
             .catch((err) => {
               console.log("err:", err);
             });
         }
-        // let p = Number(cart_items[index].Price);
-        // let q = Number(cart_items[index].Qty);
-        // console.log(typeof p, typeof q);
-        // q++;
-        // cart_items[index].Qty = q;
-        // qty.innerHTML = `${q}`;
-        // count_value.innerHTML = `${q}`;
-        // price.innerHTML = `₹${p * q}.00`;
-        // cart_items[index].Amount = `${p * q}`;
-        // let x = 0;
-        // x = cart_items.reduce((ac, cv) => {
-        //   return ac + Number(cv.Amount);
-        // }, 0);
-        // sub_total.innerHTML = `₹ ${x}.00`;
-        // sub_total_bottom.innerHTML = `<span>INR</span> ₹${x}.00`;
-        // localStorage.setItem("cart_items", JSON.stringify(cart_items));
       });
 
       let title = document.createElement("p");
