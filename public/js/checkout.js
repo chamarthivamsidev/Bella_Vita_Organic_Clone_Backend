@@ -169,22 +169,22 @@ async function formValidate(uid) {
 
       //fetch request
 
-      let res = await fetch(
-        `https://bellavitaorganic-cloned.herokuapp.com/address`,
-        {
-          method: "POST",
+      // let res = await fetch(
+      //   `https://bellavitaorganic-cloned.herokuapp.com/address`,
+      //   {
+      //     method: "POST",
 
-          body: user_add,
+      //     body: user_add,
 
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-        }
-      );
+      //     headers: {
+      //       "Content-Type": "application/json",
+      //       Accept: "application/json",
+      //     },
+      //   }
+      // );
 
-      let data = await res.json();
-      console.log("data:", data);
+      // let data = await res.json();
+      // console.log("data:", data);
 
       //   console.log(address);
       // localStorage.setItem("user_address", JSON.stringify(address));
