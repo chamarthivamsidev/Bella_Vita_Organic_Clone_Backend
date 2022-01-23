@@ -951,10 +951,10 @@ let review = [
   "https://cdn.shopify.com/s/files/1/0054/6665/2718/files/2.png?v=1603863359",
 ];
 let rev = [
-  "./images/rev-1.jpg",
-  "./images/rev-0.jpg",
-  "./images/rev-2.jpg",
-  "./images/rev-3.jpg",
+  "./images/home/rev-1.jpg",
+  "./images/home/rev-0.jpg",
+  "./images/home/rev-2.jpg",
+  "./images/home/rev-3.jpg",
 ];
 
 let image = document.querySelector(".image>img");
