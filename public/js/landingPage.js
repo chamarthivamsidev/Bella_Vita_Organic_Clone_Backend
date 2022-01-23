@@ -26,15 +26,8 @@ let search_icon = document.getElementById("header_search");
 let search_box = document.getElementById("search_box");
 let close_search = document.getElementById("close_search");
 let company_logo = document.getElementById("company_logo");
-let check_status = JSON.parse(localStorage.getItem("check_status"));
+// let check_status = JSON.parse(localStorage.getItem("check_status"));
 
-// checkout_btn.addEventListener("click", () => {
-//   for (let key in check_status) {
-//     key == "delivery" ? (check_status[key] = "1") : (check_status[key] = "0");
-//   }
-//   localStorage.setItem("check_status", JSON.stringify(check_status));
-//   window.location.href = "./checkout.html";
-// });
 console.log(check_status);
 close_btn[0].addEventListener("click", () => {
   document.getElementById("mySidenav_login").style.width = "0";
@@ -85,10 +78,26 @@ create_acc_btn.addEventListener("click", () => {
   window.location.href = "https://bellavitaorganic-cloned.herokuapp.com/signup";
 });
 
-// Redirecting to Product Page
+// Redirecting to Product Page from side navbar
 header_all_pro.addEventListener("click", () => {
   window.location.href =
     "https://bellavitaorganic-cloned.herokuapp.com/products";
+});
+
+// Redirecting to Checkout Page from side navbar
+checkout_btn.addEventListener("click", () => {
+  let check_status = JSON.parse(localStorage.getItem("check_status"));
+  if (!check_status) {
+    let obj = {
+      cart: 0,
+      delivery: 1,
+      cod: 0,
+      payment: 0,
+    };
+    localStorage.setItem("check_status", JSON.stringify(obj));
+    window.location.href =
+      "https://bellavitaorganic-cloned.herokuapp.com/checkout";
+  }
 });
 
 // sidenav display
