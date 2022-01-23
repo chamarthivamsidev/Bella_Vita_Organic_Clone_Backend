@@ -2,6 +2,7 @@ let sucess = document.getElementById("sucess");
 let container = document.getElementById("container");
 let home_btn = document.getElementById("home_btn");
 let spinner = document.getElementById("spin");
+let uid = localStorage.getItem("uid");
 
 home_btn.addEventListener("click", () => {
   window.location.href = "https://bellavitaorganic-cloned.herokuapp.com";
@@ -19,17 +20,16 @@ document.querySelectorAll(".payment_method").forEach((el) => {
 
 // setting total amount
 
-let cart_items = JSON.parse(localStorage.getItem("cart_items")) || [];
-let x = 0;
-for (let i = 0; i < cart_items.length; i++) {
-  if (cart_items[i].Amount === undefined) {
-    x = x + Number(cart_items[i].Qty) * Number(cart_items[i].Price);
-  } else {
-    x = x + Number(cart_items[i].Amount);
-  }
-}
+getCartProducts(uid);
+async function getCartProducts(uid) {
+  let res = await fetch(
+    `https://bellavitaorganic-cloned.herokuapp.com/cart/api/${uid}`
+  );
+  data = await res.json();
+  // cart_items = data.bag;
 
-document.getElementById("price").innerHTML = `₹ ${x}.00`;
+  document.getElementById("price").innerHTML = `₹ ${data.totalval}.00`;
+}
 
 // form validation
 
