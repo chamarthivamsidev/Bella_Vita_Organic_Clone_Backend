@@ -95,12 +95,12 @@
   let uid = localStorage.getItem("uid");
   getCartProducts(uid);
   async function getCartProducts(uid) {
-    console.log("hey");
+    // console.log("hey");
     let res = await fetch(
       `https://bellavitaorganic-cloned.herokuapp.com/cart/api/${uid}`
     );
     let data = await res.json();
-    console.log("data:", data);
+    // console.log("data:", data);
     cart_items = data.bag;
     console.log(cart_items);
     // if (data.quantity === 0) {
@@ -241,16 +241,16 @@
   var sub_total = document.getElementById("sub_total");
   var sub_total_bottom = document.getElementById("tdb_amount");
 
-  let x = 0;
-  for (let i = 0; i < cart_items.length; i++) {
-    if (cart_items[i].Amount === undefined) {
-      x = x + Number(cart_items[i].Qty) * Number(cart_items[i].Price);
-    } else {
-      x = x + Number(cart_items[i].Amount);
-    }
-  }
-  sub_total.innerHTML = `₹ ${x}.00`;
-  sub_total_bottom.innerHTML = `<span>INR</span> ₹${x}.00`;
+  // let x = 0;
+  // for (let i = 0; i < cart_items.length; i++) {
+  //   if (cart_items[i].Amount === undefined) {
+  //     x = x + Number(cart_items[i].Qty) * Number(cart_items[i].Price);
+  //   } else {
+  //     x = x + Number(cart_items[i].Amount);
+  //   }
+  // }
+  sub_total.innerHTML = `₹ ${data.totalval}.00`;
+  sub_total_bottom.innerHTML = `<span>INR</span> ₹${data.totalval}.00`;
 
   content(cart_items, item_div, sub_total, sub_total_bottom);
 </script>
