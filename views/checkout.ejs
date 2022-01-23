@@ -95,11 +95,14 @@
   let uid = localStorage.getItem("uid");
   getCartProducts(uid);
   async function getCartProducts(uid) {
+    console.log("hey");
     let res = await fetch(
       `https://bellavitaorganic-cloned.herokuapp.com/cart/api/${uid}`
     );
     let data = await res.json();
+    console.log("data:", data);
     cart_items = data.bag;
+    console.log(cart_items);
     // if (data.quantity === 0) {
     //   empty_cart.style.display = "block";
     // } else {
@@ -110,7 +113,7 @@
     //   total_price.innerText = `Rs. ${data.totalval}`;
     // }
   }
-  console.log(cart_items);
+
   // let u_address = JSON.parse(localStorage.getItem("user_address"));
   // let user_address = u_address.join(",");
   let check_status = JSON.parse(localStorage.getItem("check_status"));
