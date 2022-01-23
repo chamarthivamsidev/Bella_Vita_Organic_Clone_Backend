@@ -101,20 +101,20 @@ function content(cart_items, location, sub_total, sub_total_bottom, uid) {
       let price_div = document.createElement("div");
       price_div.setAttribute("id", "price_div");
 
-      let delete_icon = document.createElement("div");
-      delete_icon.setAttribute("id", "delete_icon");
+      // let delete_icon = document.createElement("div");
+      // delete_icon.setAttribute("id", "delete_icon");
 
-      delete_icon.addEventListener("click", () => {
-        cart_items.splice(index, 1);
-        localStorage.setItem("cart_items", JSON.stringify(cart_items));
-        document.location.reload();
-      });
+      // delete_icon.addEventListener("click", () => {
+      //   cart_items.splice(index, 1);
+      //   localStorage.setItem("cart_items", JSON.stringify(cart_items));
+      //   document.location.reload();
+      // });
 
       let price = document.createElement("div");
       price.setAttribute("id", "item_price");
       price.innerHTML = `₹${el.Price * el.Qty}.00`;
 
-      price_div.append(delete_icon, price);
+      price_div.append(price);
       count_div.append(decre, count_value, incre);
       title_div.append(title, count_div);
       qty_circle.append(qty);
