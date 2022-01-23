@@ -33,35 +33,29 @@ To start using the application, open the <a href="https://bellavitaorganic-clone
 
 ## Features 
 <!-- --- -->
-- There is login and logout functionality.
-- Elegant navbar for easy navigation between pages and categories.
-- Customers can view the Products list of a particular category.
-- Complete product details page, showing various sizes and variants.
-- Checkout page which calculates the shipping prices dynamically.
-- My account page which contain purchase history and the details related to respected customer
+- Login and logout functionality.
+- Navbar contains various product categories.
+- On product page particular category products with multiple sorting options displayed.
+- On Checkout page price is calculated dynamically.
 
 ## Steps to navigate the website:
 <!-- <hr> -->
-- On the Landing Page header, user can click on the 'Sign In' option to either Sign In or Create an Account
+- On the Landing Page header, user can click on the 'Admin' Icon to either Sign In or Create an Account
 - Once the user has logged in, they are taken back to the Landing Page.
-- On the top nav-bar, the user can navigate to the following categories: `All products`, to open the products list page
-- On the Products List Page 
-  - On clicking on each product 'Quick View' button. Clicking on it, the user will be shown the details of the product along with the option to add the product to their Shopping Bag
-- On hovering on products user get button called 'BUY NOW' byu clicking on it products get add into cart, and user will get popup to go for cart page or checkout page.
-- On the Shopping Bag page
-  - The user can remove a product from the shopping bag
-  - Change the quantity of the product
-- On proceeding to Checkout, the user is asked to
+- On the top nav-bar, the user can navigate to the following categories: `All products`, to open the products page
+- On the Products Page 
+  - On clicking on each product 'Quick View' button. Clicking on it, the user will be shown the details of the product along with the option to add the product to their Cart.
+- On hovering on products user get button called 'BUY NOW' bye clicking on it products get add into cart, and user will get popup to go for cart page or checkout page.
+- On the Cart page
+  - The user can remove a product from the cart.
+  - Able to Change the quantity of the product
+- On Checkout page, the user is asked to
   - Fill their address and contact details
   - Select a Shipping Method
   - Enter their Credit/Debit card details
   - Place the Order
-- On placing the Order, a pop-up displays the order no. generated for the user and the shopping bag is also cleared.
-- On the Landing Page header, user can click on the "Your Account" which is inside the username in the display
-- On My Account page
-   -Customer can view products or he/she can remove the products from Wishlist
-   - Add or Remove the delivary Addres
-   - Customer can change their password if they needed
+- On placing the Order, user will redirected to payment page
+- Once the payment is done user is will redirected to Home Page.
   
 
 ## Screenshots
@@ -76,9 +70,11 @@ A glimpse of our website
 
 ![Screenshot (110).png](	https://cdn.hashnode.com/res/hashnode/image/upload/v1639927185177/diTNoIr4q.png?auto=compress)
 ---
-- The products list page is where the list of products of a particular category are shown, the user has options to sort products and filter products as per his needs.
+
 
 ![Screenshot (113).png](https://cdn.hashnode.com/res/hashnode/image/upload/v1639927362366/9XZqQtnu_.png?auto=compress)
+
+- The products list page is where the list of products of a particular category are shown, the user has options to sort products and filter products as per his needs.
 ![Screenshot (121).png](https://cdn.hashnode.com/res/hashnode/image/upload/v1639929001512/ASDuGgFPR.png?auto=compress)
 ![Screenshot (113).png](https://cdn.hashnode.com/res/hashnode/image/upload/v1639927503511/CQeMJ80WI.png?auto=compress)
 	
@@ -89,7 +85,7 @@ A glimpse of our website
 ![Screenshot (121).png](https://cdn.hashnode.com/res/hashnode/image/upload/v1642939092811/M3Pjd5mt-.png?auto=compress)
 
 ---
-- Shopping bag page has all the items that are added to the cart/bag by the user.
+- Cart page has all the items that are added to the cart/bag by the user.
 
 ![Screenshot (123).png](https://cdn.hashnode.com/res/hashnode/image/upload/v1639929128790/wHpCOmGOu.png?auto=compress)
 ---
