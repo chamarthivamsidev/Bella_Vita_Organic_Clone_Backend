@@ -86,8 +86,7 @@ function content(cart_items, location, sub_total, sub_total_bottom, uid) {
           )
             .then((res) => {
               let userid = localStorage.getItem("uid");
-              // window.location.href = `https://bellavitaorganic-cloned.herokuapp.com/cart/${userid}`;
-              document.location.reload();
+              window.location.href = `https://bellavitaorganic-cloned.herokuapp.com/checkout`;
             })
             .catch((err) => {
               console.log("err:", err);
