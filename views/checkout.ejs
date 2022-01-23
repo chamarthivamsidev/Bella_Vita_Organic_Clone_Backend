@@ -138,7 +138,7 @@
   });
 
   // importing data
-  import { content, formValidate } from "./scripts/checkout.js";
+  import { content, formValidate } from "./js/checkout.js";
   import {
     price_desc,
     check_content,
@@ -204,7 +204,8 @@
 
     shipping_address.innerHTML = `${u_address}`;
     btn_payment.addEventListener("click", () => {
-      window.location.href = "https://bellavitaorganic-cloned.herokuapp.com/payment";
+      window.location.href =
+        "https://bellavitaorganic-cloned.herokuapp.com/payment";
     });
   }
 
