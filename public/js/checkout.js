@@ -101,15 +101,6 @@ function content(cart_items, location, sub_total, sub_total_bottom, uid) {
       let price_div = document.createElement("div");
       price_div.setAttribute("id", "price_div");
 
-      // let delete_icon = document.createElement("div");
-      // delete_icon.setAttribute("id", "delete_icon");
-
-      // delete_icon.addEventListener("click", () => {
-      //   cart_items.splice(index, 1);
-      //   localStorage.setItem("cart_items", JSON.stringify(cart_items));
-      //   document.location.reload();
-      // });
-
       let price = document.createElement("div");
       price.setAttribute("id", "item_price");
       price.innerHTML = `₹${el.Price * el.Qty}.00`;
@@ -166,12 +157,12 @@ async function formValidate() {
         phone.value
       );
       let user_str = address.join(",");
-      let user_address = {
+      let userAdd = {
         user_id: uid,
         address: user_str,
       };
 
-      let user_add = JSON.stringify(user_address);
+      let user_add = JSON.stringify(userAdd);
       console.log("user_add:", user_add);
 
       let user_api = `https://bellavitaorganic-cloned.herokuapp.com/address`;
