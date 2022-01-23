@@ -91,6 +91,7 @@
 </html>
 <script type="module">
   // element catching
+  var cart_items;
   let uid = localStorage.getItem("uid");
   getCartProducts(uid);
   async function getCartProducts(uid) {
@@ -98,7 +99,7 @@
       `https://bellavitaorganic-cloned.herokuapp.com/cart/api/${uid}`
     );
     let data = await res.json();
-    let cart_items = data.bag;
+    cart_items = data.bag;
     // if (data.quantity === 0) {
     //   empty_cart.style.display = "block";
     // } else {
