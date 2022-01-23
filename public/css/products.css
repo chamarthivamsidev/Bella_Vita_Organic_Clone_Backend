@@ -1302,3 +1302,48 @@ div {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+/* 
+//pagination css */
+#centered {
+  height: 50px;
+  width: 250px;
+  margin: auto;
+  border: 1px solid black;
+}
+.pagination {
+  width: 300px;
+  display: flex;
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.pagination div {
+  margin: auto;
+  /* float: left; */
+  color: rgb(12, 12, 14);
+  font-weight: bold;
+  padding: 9px 16px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  border: 1px solid #ddd;
+}
+
+/* #rightarrow {
+  height: 20px;
+  width: 20px;
+
+  transform: rotate(180deg);
+} */
+#main_active {
+  background-color: #f96302;
+  color: white;
+}
+
+.first {
+  border-radius: 50%;
+  width: 50px;
+  border: 1px solid grey;
+  /* margin-left: 5px; */
+  text-align: center;
+  padding-top: 10px;
+}

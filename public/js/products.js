@@ -1,15 +1,40 @@
 let products;
-product();
-async function product() {
-  let res = await fetch(
-    "https://bellavitaorganic-cloned.herokuapp.com/products/api"
-  );
-  // res = await fetch("http://localhost:3333/products/api");
+// product();
+// async function product() {
+//   let res = await fetch(
+//     "https://bellavitaorganic-cloned.herokuapp.com/products/api"
+//   );
+//   // res = await fetch("http://localhost:3333/products/api");
 
-  products = await res.json();
-  console.log(products);
+//   products = await res.json();
+//   console.log(products);
+//   showproducts(products);
+// }
+// pagination fetch
+
+data = async (page, size) => {
+  //    console.log("page","size",page,size)
+  let pagButton = document.querySelectorAll(".first");
+  for (let i = 0; i < pagButton.length; i++) {
+    if (i == page - 1) {
+      pagButton[i].style.backgroundColor = "#f96302";
+      pagButton[i].style.color = "white";
+    } else {
+      pagButton[i].style.backgroundColor = "white";
+      pagButton[i].style.color = "black";
+    }
+  }
+  const response = await fetch(
+    `https://bellavitaorganic-cloned.herokuapp.com/products/api?page=${page}&size=${size}`
+  );
+  products = await response.json();
+
   showproducts(products);
-}
+
+  //    localStorage.setItem("productsData",JSON.stringify(productsData))
+};
+
+data(1, 12);
 
 let count = 0;
 let btn = document.querySelector(".container-fluid > button");
@@ -61,7 +86,6 @@ sort.addEventListener("click", function () {
 //add to cart funtion when user click on buy now button
 let arr = JSON.parse(localStorage.getItem("cart_items")) || [];
 function addTo_cart(e) {
-  console.log(e);
   arr.push(e);
   localStorage.setItem("cart_items", JSON.stringify(arr));
   let header_cart_qty = document.getElementById("header_cart_qty");
@@ -728,6 +752,7 @@ function sortP1() {
 showproducts(products);
 
 function showproducts(data) {
+  document.querySelector(".right").innerHTML = "";
   data.map(function (item) {
     //maindiv
     let maindiv = document.createElement("div");
@@ -873,7 +898,6 @@ function appdivOpen() {
 }
 document.querySelector(".cross2").addEventListener("click", closefun1);
 function closefun1() {
-  console.log("hele");
   document.querySelector(".appdiv").style.display = "none";
   window.location.reload();
 }
@@ -885,7 +909,7 @@ function closefun() {
 // go to cart and go to checkout function
 function gotoCart() {
   let userId = localStorage.getItem("uid");
-  console.log("userid", userId);
+
   window.location.href = `https://bellavitaorganic-cloned.herokuapp.com/cart/${userId}`;
 }
 function gotoCheck() {
@@ -904,7 +928,6 @@ async function addToBag(item) {
   let file = item;
   file["userId"] = localStorage.getItem("uid");
 
-  //console.log(item);
   cartItem = JSON.stringify(file);
   let cartApi = `https://bellavitaorganic-cloned.herokuapp.com/addtocart`;
   try {
@@ -917,7 +940,6 @@ async function addToBag(item) {
       },
     });
     let data = await res.json();
-    console.log(data);
   } catch (err) {
     console.log(err.message);
   }
