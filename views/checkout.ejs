@@ -198,8 +198,6 @@
     let container_left_bottom = document.getElementById(
       "container_left_bottom"
     );
-    let u_address = JSON.parse(localStorage.getItem("user_address"));
-    let user_address = u_address.join(",");
     container_left_bottom.innerHTML = payment_content();
     let btn_payment = document.getElementById("btn_payment");
     let shipping_address = document.getElementById("shipping_address");
@@ -209,6 +207,25 @@
     let payment_dot = document.getElementById("payment_dot");
     let payment_circle = document.getElementById("pay");
 
+    // Fetching User Address from database
+    getAdd(uid);
+    async function getAdd(uid) {
+      let get_add_api = `https://bellavitaorganic-cloned.herokuapp.com/address/${uid}`;
+
+      //fetch request
+
+      let res = await fetch(get_add_api, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      let data = await res.json();
+      console.log("data:", data);
+      shipping_address.innerHTML = `${data.address.address}`;
+    }
+
     payment_dot.classList.toggle("toggle");
     prepaid_dot.classList.toggle("toggle");
     delivery_cicle.style.boxShadow = "none";
@@ -216,7 +233,6 @@
     payment_circle.style.backgroundColor = "#52b359";
     prepaid_circle.style.backgroundColor = "#52b359";
 
-    shipping_address.innerHTML = `${u_address}`;
     btn_payment.addEventListener("click", () => {
       window.location.href =
         "https://bellavitaorganic-cloned.herokuapp.com/payment";
