@@ -79,11 +79,15 @@ A glimpse of our website
 - The products list page is where the list of products of a particular category are shown, the user has options to sort products and filter products as per his needs.
 
 ![Screenshot (113).png](https://cdn.hashnode.com/res/hashnode/image/upload/v1639927362366/9XZqQtnu_.png?auto=compress)
+![Screenshot (121).png](https://cdn.hashnode.com/res/hashnode/image/upload/v1639929001512/ASDuGgFPR.png?auto=compress)
+![Screenshot (113).png](https://cdn.hashnode.com/res/hashnode/image/upload/v1639927503511/CQeMJ80WI.png?auto=compress)
+	
 ---
 - A complete detailed product page displays all the details regarding the product, here we have given the user an option to add to the cart option if he/she like to buy the product.
 
 
 ![Screenshot (121).png](https://cdn.hashnode.com/res/hashnode/image/upload/v1642939092811/M3Pjd5mt-.png?auto=compress)
+
 ---
 - Shopping bag page has all the items that are added to the cart/bag by the user.
 
