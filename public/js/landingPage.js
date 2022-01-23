@@ -28,7 +28,6 @@ let close_search = document.getElementById("close_search");
 let company_logo = document.getElementById("company_logo");
 // let check_status = JSON.parse(localStorage.getItem("check_status"));
 
-console.log(check_status);
 close_btn[0].addEventListener("click", () => {
   document.getElementById("mySidenav_login").style.width = "0";
 });
