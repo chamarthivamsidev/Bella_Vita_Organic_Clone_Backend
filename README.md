@@ -1,12 +1,11 @@
+![nord.png](https://indiaeducationdiary.in/wp-content/uploads/2021/04/Bella-Vita-Organic-Logo.png)
 
+![Build Status](https://cdn.hashnode.com/res/hashnode/image/upload/v1639927185177/diTNoIr4q.png?w=1600&h=840&fit=crop&crop=entropy&auto=compress)
 
-![nord.png](https://i2.wp.com/engageforgood.com/wp-content/uploads/2018/02/nordstrom-logo.png?resize=700%2C400&ssl=1)
-
-[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
-
-Nordstrom, Inc. (/ˈnɔːrdstrəm/) is an American luxury department store chain. Founded in 1901 by John W. Nordstrom and Carl F. Wallin, it originated as a shoe store and evolved into a full-line retailer with departments for clothing, footwear, handbags, jewelry, accessories, cosmetics, and fragrances. Some stores feature home furnishings and wedding departments, and several have in-house cafes, restaurants, and espresso bars.
+Bella Vita Organic, Inc. (/ˈnɔːrdstrəm/) is an Indian Health care Organic store. Founded in 2005 by W. Verman and F. Walia, it originated as a Organic Products store and evolved into a full-line retailer with departments for Hair Oil, Skin Care, Body Care, cosmetics, and fragrances..
 
 ---
+
 
 ## Technologies we used
 <!-- <hr> -->
@@ -71,33 +70,30 @@ A glimpse of our website
 
 - On this page users can signup/sign-in based on whether the user is already registered or not.
 
-![Screenshot (115).png](https://cdn.hashnode.com/res/hashnode/image/upload/v1630219270987/dT7e2MFN3.png)
+![Screenshot (115).png](https://cdn.hashnode.com/res/hashnode/image/upload/v1639927839884/4iulQfuXj.png?auto=compress)
 - The landing page where users cans see various categories and subcategories along with offers and discounts.
 
 
-![Screenshot (110).png](https://cdn.hashnode.com/res/hashnode/image/upload/v1630218783630/Hnn7HJryZ.png)
+![Screenshot (110).png](	https://cdn.hashnode.com/res/hashnode/image/upload/v1639927185177/diTNoIr4q.png?auto=compress)
 ---
 - The products list page is where the list of products of a particular category are shown, the user has options to sort products and filter products as per his needs.
 
-![Screenshot (113).png](https://cdn.hashnode.com/res/hashnode/image/upload/v1630219007984/HzV38DEZo.png)
+![Screenshot (113).png](https://cdn.hashnode.com/res/hashnode/image/upload/v1639927362366/9XZqQtnu_.png?auto=compress)
 ---
 - A complete detailed product page displays all the details regarding the product, here we have given the user an option to add to the cart option if he/she like to buy the product.
 
 
-![Screenshot (121).png](https://cdn.hashnode.com/res/hashnode/image/upload/v1630219125640/BuijpE4Q_.png)
+![Screenshot (121).png](https://cdn.hashnode.com/res/hashnode/image/upload/v1642939092811/M3Pjd5mt-.png?auto=compress)
 ---
 - Shopping bag page has all the items that are added to the cart/bag by the user.
 
-![Screenshot (123).png](https://cdn.hashnode.com/res/hashnode/image/upload/v1630219786505/W6oIrTvte.png)
+![Screenshot (123).png](https://cdn.hashnode.com/res/hashnode/image/upload/v1639929128790/wHpCOmGOu.png?auto=compress)
 ---
 - On the checkout page, the user enters his shipping address and credit card details in order to place the order.
 
-![Screenshot (122).png](https://cdn.hashnode.com/res/hashnode/image/upload/v1630219352528/km3ZkSW82.png)
+![Screenshot (122).png](https://cdn.hashnode.com/res/hashnode/image/upload/v1639929451111/naWajOWXD.png?auto=compress)
+![Screenshot (122).png](https://cdn.hashnode.com/res/hashnode/image/upload/v1639929567030/JsHdxOAAeM.png?auto=compress)
 ---
-- On My Account page user can change their addres and the password if they need
-
-- ![My Account](https://user-images.githubusercontent.com/87421863/135756494-f0e72fdd-fbf0-41a9-ab37-d629f43ada39.png)
-
 
 
 ## Authors
