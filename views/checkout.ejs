@@ -161,11 +161,29 @@
     let delivery_cicle = document.getElementById("da");
     let prepaid_dot = document.getElementById("prepaid_dot");
 
+    // Fetching User Address from database
+    getAdd(uid);
+    async function getAdd(uid) {
+      let get_add_api = `https://bellavitaorganic-cloned.herokuapp.com/address/${uid}`;
+
+      //fetch request
+
+      let res = await fetch(get_add_api, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      let data = await res.json();
+      console.log("data:", data);
+    }
+
     prepaid_dot.classList.toggle("toggle");
     delivery_cicle.style.boxShadow = "none";
     prepaid_circle.style.boxShadow = "0 0 21px rgb(59 179 0)";
     prepaid_circle.style.backgroundColor = "#52b359";
-    shipping_address.innerHTML = `${u_address}`;
+    // shipping_address.innerHTML = `${u_address}`;
     btn_prepaid.addEventListener("click", () => {
       for (let key in check_status) {
         key == "payment"
