@@ -46,7 +46,7 @@ app.use("/payment", async (req, res) => {
 
 // Google Auth
 
-app.use(passport.initialize());
+// app.use(passport.initialize());
 
 passport.serializeUser(function (user, callback) {
   callback(null, user);
