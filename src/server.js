@@ -15,18 +15,18 @@ app.use(express.json());
 app.set("view engine", "ejs"); // root directory for views views/
 app.use(express.static("public"));
 
+app.get("/", function (req, res) {
+  user = {};
+  user["first_name"] = "null";
+  res.render("landingPage.ejs", { user: user });
+});
+
 app.use("/products", product_controller);
 app.use("/cart", cart_controller);
 app.use("/users", userController);
 
 app.use("/addtocart", addtocart_controller);
 app.use("/address", address_controller);
-
-app.get("/", function (req, res) {
-  user = {};
-  user["first_name"] = "null";
-  res.render("landingPage.ejs", { user: user });
-});
 
 app.get("/signup", async (req, res) => {
   res.render("signup.view.ejs", {});
