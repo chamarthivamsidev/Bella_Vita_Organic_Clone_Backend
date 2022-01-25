@@ -70,7 +70,6 @@ let side_navbar_cart = document.getElementById("side_navbar_cart");
 let empty_cart = document.getElementById("side_navbar_empty_cart");
 let sidenav_cart_items = document.getElementById("sidenav_cart_items");
 let header_all_pro = document.getElementById("header_all_pro");
-let uid = localStorage.getItem("uid");
 
 // Create Account
 create_acc_btn.addEventListener("click", () => {
@@ -103,10 +102,17 @@ checkout_btn.addEventListener("click", () => {
 });
 
 // sidenav display
+if (login_name.textContent !== null) {
+  console.log(login_name.textContent);
+  localStorage.setItem("uid", login_name.textContent);
+}
+let uid = localStorage.getItem("uid");
 if (!uid) {
+  console.log("hello_2");
   login.style.display = "block";
   empty_cart.style.display = "block";
 } else {
+  console.log("hello");
   getUserDetails(uid);
   async function getUserDetails(uid) {
     const response = await fetch(
