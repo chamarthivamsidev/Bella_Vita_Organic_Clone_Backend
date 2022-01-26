@@ -21,16 +21,16 @@ document.querySelectorAll(".payment_method").forEach((el) => {
 
 // setting total amount
 
-getCartProducts(uid);
-async function getCartProducts(uid) {
-  let res = await fetch(
-    `https://bellavitaorganic-cloned.herokuapp.com/cart/api/${uid}`
-  );
-  data = await res.json();
-  // cart_items = data.bag;
-  localStorage.setItem("totalprice", data.totalval);
-  document.getElementById("price").innerHTML = `₹ ${data.totalval}.00`;
-}
+// getCartProducts(uid);
+// async function getCartProducts(uid) {
+//   let res = await fetch(
+//     `https://bellavitaorganic-cloned.herokuapp.com/cart/api/${uid}`
+//   );
+//   data = await res.json();
+//   // cart_items = data.bag;
+//   localStorage.setItem("totalprice", data.totalval);
+//   document.getElementById("price").innerHTML = `₹ ${data.totalval}.00`;
+// }
 
 // form validation
 

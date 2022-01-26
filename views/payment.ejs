@@ -40,7 +40,7 @@
           <br />
           <span>Cancel</span>
         </div>
-        <p id="price"></p>
+        <p id="price_pro"></p>
       </header>
       <div id="payment">
         <div id="payment_left">
@@ -108,6 +108,18 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <script>
+  // setting total amount
+  getCartProducts(uid);
+  async function getCartProducts(uid) {
+    let res = await fetch(
+      `https://bellavitaorganic-cloned.herokuapp.com/cart/api/${uid}`
+    );
+    data = await res.json();
+    // cart_items = data.bag;
+    localStorage.setItem("totalprice", data.totalval);
+    document.getElementById("price_pro").innerHTML = `₹ ${data.totalval}.00`;
+  }
+
   const price = localStorage.getItem("totalprice");
   const totalAmount = +price * 100;
   console.log("totalAmount:", totalAmount);
