@@ -4,6 +4,7 @@ const app = express();
 const connect = require("./config/db");
 const bodyparser = require("body-parser");
 const passport = require("./config/passport");
+const Razorpay = require("razorpay");
 
 const userController = require("./controllers/user.controller");
 const product_controller = require("./controllers/product_controller");
@@ -72,6 +73,14 @@ app.get(
 
 app.get("/auth/google/failure", (req, res) => {
   return res.send("Failure");
+});
+
+//Razorpay
+
+const instance = new Razorpay({
+  key_id: "rzp_test_gW4ujGNEEezk8e",
+
+  key_secret: "WCx0JYBEIZJFnukupfe2oWhn",
 });
 
 // Connecting with port
