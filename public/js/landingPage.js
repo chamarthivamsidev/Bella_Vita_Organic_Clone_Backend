@@ -1,4 +1,4 @@
-console.log("passport.js added");
+console.log("google_autth_added");
 //sticky navbar
 window.onscroll = function () {
   myFunction();
