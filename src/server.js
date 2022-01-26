@@ -17,7 +17,7 @@ app.use(express.static("public"));
 
 app.get("/", function (req, res) {
   user = {};
-  user["first_name"] = "null";
+  user["_id"] = "null";
   res.render("landingPage.ejs", { user: user });
 });
 
