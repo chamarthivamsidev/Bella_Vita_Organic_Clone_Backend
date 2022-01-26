@@ -104,34 +104,91 @@
     </div>
   </body>
 </html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <script src="/js/payment.js"></script>
 <script>
   const price = localStorage.getItem("totalprice");
-  var options = {
-    key: "rzp_test_eLwrqAde1iXXjF",
-    amount: `${+price}` * 100,
-    currency: "INR",
-    name: "Nykaman",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDcJD09Q0m4l05BohZwUtZYJ2tpzmZy2LTXQ&usqp=CAU",
-    theme: {
-      color: "#66ccff",
-    },
-    callback_url: "/sucess",
-  };
-  var razorpayObject = new Razorpay(options);
-  console.log(razorpayObject);
-  razorpayObject.on("payment.failed", function (response) {
-    console.log(response);
-    alert("This step of Payment Failed");
+  var orderId;
+  $(document).ready(function () {
+    var settings = {
+      url: "/create/orderId",
+      method: "POST",
+      timeout: 0,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      data: JSON.stringify({
+        amount: `${price}`,
+      }),
+    };
+
+    //creates new orderId everytime
+    $.ajax(settings).done(function (response) {
+      orderId = response.orderId;
+      console.log(orderId);
+      $("button").show();
+    });
   });
+
   document.getElementById("rzp-button1").onclick = function (e) {
-    razorpayObject.open();
+    var options = {
+      key: "rzp_test_gW4ujGNEEezk8e", // Enter the Key ID generated from the Dashboard
+      amount: `${+price}` * 100, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+      currency: "INR",
+      name: "Bella Vita Organic",
+      description: "Buy Ayurvedic Solutions",
+      image: "https://example.com/your_logo",
+      order_id: orderId, //This is a sample Order ID. Pass the `id` obtained in the previous step
+      handler: function (response) {
+        alert(response.razorpay_payment_id);
+        alert(response.razorpay_order_id);
+        alert(response.razorpay_signature);
+      },
+      theme: {
+        color: "#99cc33",
+      },
+      callback_url: "/sucess",
+    };
+    var rzp1 = new Razorpay(options);
+    rzp1.on("payment.failed", function (response) {
+      alert(response.error.code);
+      alert(response.error.description);
+      alert(response.error.source);
+      alert(response.error.step);
+      alert(response.error.reason);
+      alert(response.error.metadata.order_id);
+      alert(response.error.metadata.payment_id);
+    });
+    rzp1.open();
     e.preventDefault();
   };
-  var rzp1 = new Razorpay(options);
+
+  // var options = {
+  //   key: "rzp_test_eLwrqAde1iXXjF",
+  //   amount: `${+price}` * 100,
+  //   currency: "INR",
+  //   name: "Nykaman",
+  //   image:
+  //     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDcJD09Q0m4l05BohZwUtZYJ2tpzmZy2LTXQ&usqp=CAU",
+  //   theme: {
+  //     color: "#66ccff",
+  //   },
+  //   callback_url: "/sucess",
+  // };
+  // var razorpayObject = new Razorpay(options);
+  // console.log(razorpayObject);
+  // razorpayObject.on("payment.failed", function (response) {
+  //   console.log(response);
+  //   alert("This step of Payment Failed");
+  // });
   // document.getElementById("rzp-button1").onclick = function (e) {
-  //   rzp1.open();
+  //   razorpayObject.open();
   //   e.preventDefault();
   // };
+  // var rzp1 = new Razorpay(options);
+  // // document.getElementById("rzp-button1").onclick = function (e) {
+  // //   rzp1.open();
+  // //   e.preventDefault();
+  // // };
 </script>

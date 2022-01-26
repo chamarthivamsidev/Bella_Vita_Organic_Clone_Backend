@@ -83,6 +83,18 @@ const instance = new Razorpay({
   key_secret: "WCx0JYBEIZJFnukupfe2oWhn",
 });
 
+app.post("/create/orderId", (req, res) => {
+  console.log("Created orderId request", req.body);
+  var options = {
+    amount: req.body.amount, // amount in the smallest currency unit
+    currency: "INR",
+    receipt: "rcp1",
+  };
+  instance.orders.create(options, function (err, order) {
+    console.log(order);
+    res.send({ orderId: order.id });
+  });
+});
 // Connecting with port
 
 const port = process.env.PORT || 8002;
