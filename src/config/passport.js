@@ -14,9 +14,11 @@ const newToken = (user) => {
 passport.use(
   new GoogleStrategy(
     {
-      clientID: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: "https://bellavitaorganic-cloned.herokuapp.com/auth/google/callback",
+      clientID:
+        "446023115677-0ll18h7c89bsha7n5er5e8rf6q662msm.apps.googleusercontent.com",
+      clientSecret: "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",
+      callbackURL:
+        "https://bellavitaorganic-cloned.herokuapp.com/auth/google/callback",
       userProfileURL: "https://**www**.googleapis.com/oauth2/v3/userinfo",
       passReqToCallback: true,
     },
