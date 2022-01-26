@@ -61,34 +61,35 @@ app.get(
   passport.authenticate("google", { scope: ["email", "profile"] })
 );
 
-// app.get(
-//   "/auth/google/callback",
-//   passport.authenticate("google", {
-//     failureRedirect: "/auth/google/failure",
-//   }),
-//   (req, res) => {
-//     res.render("landingPage", {
-//       user: req.user.user,
-//       token: req.user.token,
-//     });
-//   }
-// );
-
 app.get(
   "/auth/google/callback",
   passport.authenticate("google", {
-    successRedirect: "/auth/google/success",
     failureRedirect: "/auth/google/failure",
-  })
+  }),
+  (req, res) => {
+    // res.render("landingPage", {
+    //   user: req.user.user,
+    //   token: req.user.token,
+    // });
+    res.send({ user: req.user?.user, token: req.user?.token });
+  }
 );
 
-app.get("/auth/google/success", (req, res) => {
-  // res.render("landingPage", {
-  //   user: req.user.user,
-  //   token: req.user.token,
-  // });
-  res.status(201).send({ user: req.user?.user, token: req.user?.token });
-});
+// app.get(
+//   "/auth/google/callback",
+//   passport.authenticate("google", {
+//     successRedirect: "/auth/google/success",
+//     failureRedirect: "/auth/google/failure",
+//   })
+// );
+
+// app.get("/auth/google/success", (req, res) => {
+//   res.render("landingPage", {
+//     user: req.user.user,
+//     token: req.user.token,
+//   });
+//   res.status(201).send({ user: req.user?.user, token: req.user?.token });
+// });
 
 app.get("/auth/google/failure", (req, res) => {
   return res.send("Failure");
