@@ -1,4 +1,4 @@
-console.log("absolute_path_removed");
+console.log("changed");
 //sticky navbar
 window.onscroll = function () {
   myFunction();
