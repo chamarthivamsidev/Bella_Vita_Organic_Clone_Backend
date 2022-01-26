@@ -104,8 +104,7 @@ checkout_btn.addEventListener("click", () => {
 });
 
 // Getting User Info
-let userdata = "<%= JSON.parse(user_id)%>";
-console.log("userdata:", userdata);
+
 
 // let useremail = "<%-useremail%>";
 // if ("<%-userdata%>" !== "") {

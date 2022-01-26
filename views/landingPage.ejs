@@ -817,6 +817,10 @@
 
     <!-- footer -->
     <%- include("footer"); %>
+    <script>
+      let userdata = "<%= JSON.parse(user_id)%>";
+      console.log("userdata:", userdata);
+    </script>
   </body>
   <!-- vaibhav slider -->
   <script src="https://npmcdn.com/flickity@2/dist/flickity.pkgd.js"></script>
