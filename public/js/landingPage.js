@@ -1,4 +1,4 @@
-console.log("razor_1");
+console.log("razor_2");
 
 //sticky navbar
 window.onscroll = function () {

@@ -27,7 +27,7 @@ async function getCartProducts(uid) {
   );
   data = await res.json();
   // cart_items = data.bag;
-
+  localStorage.setItem("totalprice", JSON.stringify(data.totalval));
   document.getElementById("price").innerHTML = `₹ ${data.totalval}.00`;
 }
 
