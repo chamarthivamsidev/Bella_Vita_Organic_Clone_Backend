@@ -1,3 +1,4 @@
+console.log("passport.js added");
 //sticky navbar
 window.onscroll = function () {
   myFunction();
