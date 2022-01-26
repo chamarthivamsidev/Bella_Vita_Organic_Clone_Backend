@@ -1,4 +1,4 @@
-console.log("last_10");
+console.log("final_commit");
 //sticky navbar
 window.onscroll = function () {
   myFunction();
@@ -102,16 +102,8 @@ checkout_btn.addEventListener("click", () => {
   }
 });
 
-// sidenav display
-// if (login_name.textContent !== null) {
-//   console.log(login_name.textContent);
-//   localStorage.setItem("uid", login_name.textContent);
-// }
 let u = JSON.parse(login_name.textContent);
-console.log("u:", u);
 if (u != "null") {
-  // let u = JSON.parse(login_name.textContent);
-  // console.log(login_name.textContent);
   localStorage.setItem("uid", u);
 }
 

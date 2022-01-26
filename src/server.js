@@ -16,7 +16,7 @@ app.set("view engine", "ejs"); // root directory for views views/
 app.use(express.static("public"));
 
 app.get("/", function (req, res) {
-  res.render("landingPage.ejs", { "user": {"_id" : "null"} });
+  res.render("landingPage.ejs", { user: { _id: "null" } });
 });
 
 app.use("/products", product_controller);
@@ -44,8 +44,6 @@ app.use("/payment", async (req, res) => {
 
 // Google Auth
 
-// app.use(passport.initialize());
-
 passport.serializeUser(function (user, callback) {
   callback(null, user);
 });
@@ -65,30 +63,11 @@ app.get(
     failureRedirect: "/auth/google/failure",
   }),
   (req, res) => {
-    // console.log(req.user.user);
     res.render("landingPage", {
       user: req.user.user,
     });
-    // let userPro = JSON.parse(req.user?.user);
-    // res.send({ user: req.user?.user });
   }
 );
-
-// app.get(
-//   "/auth/google/callback",
-//   passport.authenticate("google", {
-//     successRedirect: "/auth/google/success",
-//     failureRedirect: "/auth/google/failure",
-//   })
-// );
-
-// app.get("/auth/google/success", (req, res) => {
-//   res.render("landingPage", {
-//     user: req.user.user,
-//     token: req.user.token,
-//   });
-//   res.status(201).send({ user: req.user?.user, token: req.user?.token });
-// });
 
 app.get("/auth/google/failure", (req, res) => {
   return res.send("Failure");
