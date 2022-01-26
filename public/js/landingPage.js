@@ -1,4 +1,4 @@
-console.log("google_autth_added");
+console.log("absolute_path_added");
 //sticky navbar
 window.onscroll = function () {
   myFunction();
