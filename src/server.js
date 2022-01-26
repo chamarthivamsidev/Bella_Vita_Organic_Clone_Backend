@@ -68,11 +68,11 @@ app.get(
   }),
   (req, res) => {
     // console.log(req.user.user);
-    // res.render("landingPage", {
-    //   user: req.user.user,
-    // });
+    res.render("landingPage", {
+      user: req.user.user,
+    });
     // let userPro = JSON.parse(req.user?.user);
-    res.send({ user: req.user?.user });
+    // res.send({ user: req.user?.user });
   }
 );
 
