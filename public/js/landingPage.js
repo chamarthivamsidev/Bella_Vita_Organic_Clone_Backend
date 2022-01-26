@@ -102,10 +102,10 @@ checkout_btn.addEventListener("click", () => {
 });
 
 // sidenav display
-if (login_name.textContent !== null) {
-  console.log(login_name.textContent);
-  localStorage.setItem("uid", login_name.textContent);
-}
+// if (login_name.textContent !== null) {
+//   console.log(login_name.textContent);
+//   localStorage.setItem("uid", login_name.textContent);
+// }
 let uid = localStorage.getItem("uid");
 if (!uid) {
   console.log("hello_2");
