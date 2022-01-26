@@ -44,34 +44,34 @@ app.use("/payment", async (req, res) => {
 
 // Google Auth
 
-passport.serializeUser(function (user, callback) {
-  callback(null, user);
-});
+// passport.serializeUser(function (user, callback) {
+//   callback(null, user);
+// });
 
-passport.deserializeUser(function (user, callback) {
-  callback(null, user);
-});
+// passport.deserializeUser(function (user, callback) {
+//   callback(null, user);
+// });
 
-app.get(
-  "/auth/google",
-  passport.authenticate("google", { scope: ["email", "profile"] })
-);
+// app.get(
+//   "/auth/google",
+//   passport.authenticate("google", { scope: ["email", "profile"] })
+// );
 
-app.get(
-  "/auth/google/callback",
-  passport.authenticate("google", {
-    failureRedirect: "/auth/google/failure",
-  }),
-  (req, res) => {
-    res.render("landingPage", {
-      user: req.user.user,
-    });
-  }
-);
+// app.get(
+//   "/auth/google/callback",
+//   passport.authenticate("google", {
+//     failureRedirect: "/auth/google/failure",
+//   }),
+//   (req, res) => {
+//     res.render("landingPage", {
+//       user: req.user.user,
+//     });
+//   }
+// );
 
-app.get("/auth/google/failure", (req, res) => {
-  return res.send("Failure");
-});
+// app.get("/auth/google/failure", (req, res) => {
+//   return res.send("Failure");
+// });
 
 // Connecting with port
 app.listen(process.env.PORT || 3333, async () => {
