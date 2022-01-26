@@ -68,10 +68,9 @@ app.get(
   }),
   (req, res) => {
     let user_id = req.user.user._id;
-    res.send({ user_id });
-    // res.render("landingPage", {
-    //   user_id,
-    // });
+    res.render("landingPage", {
+      user_id,
+    });
   }
 );
 
