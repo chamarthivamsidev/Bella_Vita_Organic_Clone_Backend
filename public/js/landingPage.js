@@ -1,4 +1,4 @@
-console.log("last_2");
+console.log("last_3");
 //sticky navbar
 window.onscroll = function () {
   myFunction();
