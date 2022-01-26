@@ -112,6 +112,7 @@
   const totalAmount = +price * 100;
   console.log("totalAmount:", totalAmount);
 
+  //generating order id
   var orderId;
   $(document).ready(function () {
     var settings = {
@@ -134,63 +135,23 @@
     });
   });
 
+  // proceding to payment through razorpay
   document.getElementById("rzp-button1").onclick = function (e) {
     var options = {
-      key: "rzp_test_gW4ujGNEEezk8e", // Enter the Key ID generated from the Dashboard
+      key: "rzp_test_gW4ujGNEEezk8e",
       amount: `${totalAmount}`, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
       currency: "INR",
       name: "Bella Vita Organic",
       description: "Buy Ayurvedic Solutions",
       image: "https://example.com/your_logo",
-      order_id: orderId, //This is a sample Order ID. Pass the `id` obtained in the previous step
+      order_id: orderId,
       theme: {
         color: "#99cc33",
       },
       callback_url: "/razorpay/success",
     };
     var rzp1 = new Razorpay(options);
-    // rzp1.on("payment.failed", function (response) {
-    //   alert(response.error.code);
-    //   alert(response.error.description);
-    //   alert(response.error.source);
-    //   alert(response.error.step);
-    //   alert(response.error.reason);
-    //   alert(response.error.metadata.order_id);
-    //   alert(response.error.metadata.payment_id);
-    // });
     rzp1.open();
     e.preventDefault();
   };
-  // document.getElementById("rzp-button1").onclick = function (e) {
-  //   var options = {
-  //     key: "rzp_test_gW4ujGNEEezk8e", // Enter the Key ID generated from the Dashboard
-  //     amount: `${+price}` * 100, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
-  //     currency: "INR",
-  //     name: "Bella Vita Organic",
-  //     description: "Buy Ayurvedic Solutions",
-  //     image: "https://example.com/your_logo",
-  //     order_id: orderId, //This is a sample Order ID. Pass the `id` obtained in the previous step
-  //     handler: function (response) {
-  //       alert(response.razorpay_payment_id);
-  //       alert(response.razorpay_order_id);
-  //       alert(response.razorpay_signature);
-  //     },
-  //     theme: {
-  //       color: "#99cc33",
-  //     },
-  //     callback_url: "/razorpay/success",
-  //   };
-  //   var rzp1 = new Razorpay(options);
-  //   rzp1.on("payment.failed", function (response) {
-  //     alert(response.error.code);
-  //     alert(response.error.description);
-  //     alert(response.error.source);
-  //     alert(response.error.step);
-  //     alert(response.error.reason);
-  //     alert(response.error.metadata.order_id);
-  //     alert(response.error.metadata.payment_id);
-  //   });
-  //   rzp1.open();
-  //   e.preventDefault();
-  // };
 </script>

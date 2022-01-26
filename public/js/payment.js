@@ -1,4 +1,3 @@
-console.log("razor_2");
 
 let sucess = document.getElementById("sucess");
 let container = document.getElementById("container");
