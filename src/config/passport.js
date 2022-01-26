@@ -8,7 +8,7 @@ const User = require("../models/user.model");
 const jwt = require("jsonwebtoken");
 
 const newToken = (user) => {
-  return jwt.sign({ user: user }, process.env.JWT_SECRET_KEY);
+  return jwt.sign({ user: user }, "secret");
 };
 
 passport.use(
