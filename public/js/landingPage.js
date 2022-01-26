@@ -1,4 +1,4 @@
-console.log("55");
+console.log("mongo");
 
 //sticky navbar
 window.onscroll = function () {
