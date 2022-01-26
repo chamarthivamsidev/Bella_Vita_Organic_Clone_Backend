@@ -818,7 +818,7 @@
     <!-- footer -->
     <%- include("footer"); %>
     <script>
-      let userdata = "<%= JSON.parse(user_id)%>";
+      let userdata = '<%- JSON.parse(user_id)%>';
       console.log("userdata:", userdata);
     </script>
   </body>
