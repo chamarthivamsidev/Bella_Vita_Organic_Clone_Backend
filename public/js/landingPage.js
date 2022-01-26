@@ -1,4 +1,4 @@
-console.log("last_5");
+console.log("last_6");
 //sticky navbar
 window.onscroll = function () {
   myFunction();
@@ -107,10 +107,11 @@ checkout_btn.addEventListener("click", () => {
 //   console.log(login_name.textContent);
 //   localStorage.setItem("uid", login_name.textContent);
 // }
-console.log(login_name.textContent);
-if (!login_name.textContent) {
-  let u = JSON.parse(login_name.textContent);
-  console.log(login_name.textContent);
+let u = JSON.parse(login_name.textContent);
+console.log("u:", u);
+if (login_name.textContent !== "null") {
+  // let u = JSON.parse(login_name.textContent);
+  // console.log(login_name.textContent);
   localStorage.setItem("uid", u);
 }
 
