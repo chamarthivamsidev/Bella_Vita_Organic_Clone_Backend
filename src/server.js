@@ -16,9 +16,9 @@ app.set("view engine", "ejs"); // root directory for views views/
 app.use(express.static("public"));
 
 app.get("/", function (req, res) {
-  user = {};
-  user["_id"] = null;
-  res.render("landingPage.ejs", { user: user });
+  // user = {};
+  // user["_id"] = null;
+  res.render("landingPage.ejs", { user: "hello" });
 });
 
 app.use("/products", product_controller);
