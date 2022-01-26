@@ -67,10 +67,11 @@ app.get(
     failureRedirect: "/auth/google/failure",
   }),
   (req, res) => {
-    console.log(req.user.user);
-    res.render("landingPage", {
-      user: req.user.user,
-    });
+    // console.log(req.user.user);
+    // res.render("landingPage", {
+    //   user: req.user.user,
+    // });
+    res.send({ user: req.user?.user, token: req.user?.token });
   }
 );
 
