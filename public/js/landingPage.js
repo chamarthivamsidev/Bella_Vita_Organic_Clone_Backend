@@ -1,4 +1,4 @@
-console.log("35");
+console.log("40");
 
 //sticky navbar
 window.onscroll = function () {
@@ -79,10 +79,10 @@ create_acc_btn.addEventListener("click", () => {
 });
 
 // Redirecting to Product Page from side navbar
-// header_all_pro.addEventListener("click", () => {
-//   window.location.href =
-//     "https://bellavitaorganic-cloned.herokuapp.com/products";
-// });
+header_all_pro.addEventListener("click", () => {
+  window.location.href =
+    "https://bellavitaorganic-cloned.herokuapp.com/products";
+});
 
 // Redirecting to Checkout Page from side navbar
 checkout_btn.addEventListener("click", () => {
