@@ -67,8 +67,9 @@ app.get(
     failureRedirect: "/auth/google/failure",
   }),
   (req, res) => {
+    let user_id = req.user.user._id;
     res.render("landingPage", {
-      user: req.user.user,
+      user_id,
     });
   }
 );

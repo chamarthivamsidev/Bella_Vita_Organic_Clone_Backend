@@ -1,4 +1,4 @@
-console.log("20");
+console.log("21");
 
 //sticky navbar
 window.onscroll = function () {
@@ -104,7 +104,7 @@ checkout_btn.addEventListener("click", () => {
 });
 
 // Getting User Info
-let userdata = "<%-user%>";
+let userdata = "<%-user_id%>";
 console.log("userdata:", userdata);
 
 // let useremail = "<%-useremail%>";
