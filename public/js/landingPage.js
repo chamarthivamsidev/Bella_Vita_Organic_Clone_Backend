@@ -1,4 +1,4 @@
-console.log("final_commit");
+console.log("1");
 //sticky navbar
 window.onscroll = function () {
   myFunction();
