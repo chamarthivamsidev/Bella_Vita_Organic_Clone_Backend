@@ -15,13 +15,13 @@ app.use(express.json());
 app.set("view engine", "ejs"); // root directory for views views/
 app.use(express.static("public"));
 
-// app.get("/", function (req, res) {
-//   res.render("landingPage.ejs", { user: { _id: "null" } });
-// });
-
 app.get("/", function (req, res) {
-  res.render("landingPage.ejs", {});
+  res.render("landingPage.ejs", { user: { _id: "null" } });
 });
+
+// app.get("/", function (req, res) {
+//   res.render("landingPage.ejs", {});
+// });
 
 app.use("/products", product_controller);
 app.use("/cart", cart_controller);
