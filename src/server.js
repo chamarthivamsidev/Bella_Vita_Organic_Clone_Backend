@@ -15,8 +15,12 @@ app.use(express.json());
 app.set("view engine", "ejs"); // root directory for views views/
 app.use(express.static("public"));
 
+// app.get("/", function (req, res) {
+//   res.render("landingPage.ejs", { user: { _id: "null" } });
+// });
+
 app.get("/", function (req, res) {
-  res.render("landingPage.ejs", { user: { _id: "null" } });
+  res.render("landingPage.ejs", {});
 });
 
 app.use("/products", product_controller);
@@ -75,7 +79,7 @@ app.get("/auth/google/failure", (req, res) => {
 
 // Connecting with port
 
-const port = process.env.PORT || 3333;
+const port = process.env.PORT || 8002;
 
 app.listen(port, async () => {
   try {

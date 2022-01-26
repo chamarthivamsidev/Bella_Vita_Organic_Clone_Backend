@@ -1,4 +1,5 @@
-console.log("1");
+console.log("20");
+
 //sticky navbar
 window.onscroll = function () {
   myFunction();
@@ -78,10 +79,10 @@ create_acc_btn.addEventListener("click", () => {
 });
 
 // Redirecting to Product Page from side navbar
-header_all_pro.addEventListener("click", () => {
-  window.location.href =
-    "https://bellavitaorganic-cloned.herokuapp.com/products";
-});
+// header_all_pro.addEventListener("click", () => {
+//   window.location.href =
+//     "https://bellavitaorganic-cloned.herokuapp.com/products";
+// });
 
 // Redirecting to Checkout Page from side navbar
 checkout_btn.addEventListener("click", () => {
@@ -102,10 +103,27 @@ checkout_btn.addEventListener("click", () => {
   }
 });
 
-let u = JSON.parse(login_name.textContent);
-if (u != "null") {
-  localStorage.setItem("uid", u);
-}
+// Getting User Info
+let userdata = "<%-user%>";
+console.log("userdata:", userdata);
+
+// let useremail = "<%-useremail%>";
+// if ("<%-userdata%>" !== "") {
+//   let name = {
+//     displayName: userdata,
+//     email: useremail,
+//   };
+
+//   document.getElementById("getn").innerText = name.displayName;
+//   localStorage.setItem("UserDetails", JSON.stringify(name));
+// } else {
+//   let name = JSON.parse(localStorage.getItem("UserDetails"));
+//   document.getElementById("getn").innerText = name.displayName;
+// }
+// let u = JSON.parse(login_name.textContent);
+// if (u != "null") {
+//   localStorage.setItem("uid", u);
+// }
 
 let uid = localStorage.getItem("uid");
 if (!uid) {
