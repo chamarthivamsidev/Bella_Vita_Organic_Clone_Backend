@@ -16,7 +16,7 @@ passport.use(
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: `${process.env.ABSOLUTE_URI}/auth/google/callback`,
+      callbackURL: "https://bellavitaorganic-cloned.herokuapp.com/auth/google/callback",
       userProfileURL: "https://**www**.googleapis.com/oauth2/v3/userinfo",
       passReqToCallback: true,
     },
