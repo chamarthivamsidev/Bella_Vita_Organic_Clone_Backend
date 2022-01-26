@@ -71,8 +71,8 @@ app.get(
     // res.render("landingPage", {
     //   user: req.user.user,
     // });
-    let userPro = JSON.parse(req.user?.user);
-    res.send({ user: userPro });
+    // let userPro = JSON.parse(req.user?.user);
+    res.send({ user: req.user?.user });
   }
 );
 
