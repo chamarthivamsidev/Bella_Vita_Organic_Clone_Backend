@@ -1,4 +1,4 @@
-console.log("40");
+console.log("50");
 
 //sticky navbar
 window.onscroll = function () {
@@ -105,24 +105,6 @@ checkout_btn.addEventListener("click", () => {
 
 // Getting User Info
 
-// let useremail = "<%-useremail%>";
-// if ("<%-userdata%>" !== "") {
-//   let name = {
-//     displayName: userdata,
-//     email: useremail,
-//   };
-
-//   document.getElementById("getn").innerText = name.displayName;
-//   localStorage.setItem("UserDetails", JSON.stringify(name));
-// } else {
-//   let name = JSON.parse(localStorage.getItem("UserDetails"));
-//   document.getElementById("getn").innerText = name.displayName;
-// }
-// let u = JSON.parse(login_name.textContent);
-// if (u != "null") {
-//   localStorage.setItem("uid", u);
-// }
-
 let uid = localStorage.getItem("uid");
 if (!uid) {
   console.log("hello_2");
@@ -164,6 +146,7 @@ if (!uid) {
   }
 }
 // Displaying cart items on side navbar
+
 function displayItems(arr) {
   sidenav_cart_items.innerHTML = null;
   arr.map((el, index) => {
@@ -256,6 +239,7 @@ async function Login() {
 }
 
 // Logout
+
 logout.addEventListener("click", () => {
   alert("logout sucessfull");
   localStorage.clear();

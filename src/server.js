@@ -19,10 +19,6 @@ app.get("/", function (req, res) {
   res.render("landingPage.ejs", { user_id: "null" });
 });
 
-// app.get("/", function (req, res) {
-//   res.render("landingPage.ejs", {});
-// });
-
 app.use("/products", product_controller);
 app.use("/cart", cart_controller);
 app.use("/users", userController);
