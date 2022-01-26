@@ -817,11 +817,13 @@
 
     <!-- footer -->
     <%- include("footer"); %>
-    <script>
-      let userdata = "<%- user_id %>";
-      console.log("userdata:", userdata);
-    </script>
   </body>
+  <script>
+    let user_id = "<%- user_id %>";
+    if (!user_id) {
+      localStorage.setItem("uid", user_id);
+    }
+  </script>
   <!-- vaibhav slider -->
   <script src="https://npmcdn.com/flickity@2/dist/flickity.pkgd.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
