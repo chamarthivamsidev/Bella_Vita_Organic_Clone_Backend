@@ -85,8 +85,9 @@ const instance = new Razorpay({
 
 app.post("/create/orderId", (req, res) => {
   console.log("Created orderId request", req.body);
+  const amount = Number(req.body.amount);
   var options = {
-    amount: req.body.amount, // amount in the smallest currency unit
+    amount: String(amount), // amount in the smallest currency unit
     currency: "INR",
     receipt: "rcp1",
   };
