@@ -1,4 +1,4 @@
-console.log("last_6");
+console.log("last_7");
 //sticky navbar
 window.onscroll = function () {
   myFunction();
@@ -109,7 +109,7 @@ checkout_btn.addEventListener("click", () => {
 // }
 let u = JSON.parse(login_name.textContent);
 console.log("u:", u);
-if (login_name.textContent !== "null") {
+if (login_name.textContent != null) {
   // let u = JSON.parse(login_name.textContent);
   // console.log(login_name.textContent);
   localStorage.setItem("uid", u);
