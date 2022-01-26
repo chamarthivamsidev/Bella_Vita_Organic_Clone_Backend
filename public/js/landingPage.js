@@ -107,7 +107,9 @@ checkout_btn.addEventListener("click", () => {
 //   console.log(login_name.textContent);
 //   localStorage.setItem("uid", login_name.textContent);
 // }
+let u = JSON.parse(login_name.textContent);
 console.log(login_name.textContent);
+localStorage.setItem("uid", u);
 let uid = localStorage.getItem("uid");
 if (!uid) {
   console.log("hello_2");
