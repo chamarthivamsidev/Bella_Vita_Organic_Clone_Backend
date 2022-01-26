@@ -1,4 +1,4 @@
-console.log("mongo");
+console.log("razor_1");
 
 //sticky navbar
 window.onscroll = function () {
