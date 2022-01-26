@@ -148,7 +148,7 @@
       theme: {
         color: "#99cc33",
       },
-      callback_url: "/sucess",
+      callback_url: "/razorpay/success",
     };
     var rzp1 = new Razorpay(options);
     rzp1.on("payment.failed", function (response) {
@@ -163,32 +163,4 @@
     rzp1.open();
     e.preventDefault();
   };
-
-  // var options = {
-  //   key: "rzp_test_eLwrqAde1iXXjF",
-  //   amount: `${+price}` * 100,
-  //   currency: "INR",
-  //   name: "Nykaman",
-  //   image:
-  //     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDcJD09Q0m4l05BohZwUtZYJ2tpzmZy2LTXQ&usqp=CAU",
-  //   theme: {
-  //     color: "#66ccff",
-  //   },
-  //   callback_url: "/sucess",
-  // };
-  // var razorpayObject = new Razorpay(options);
-  // console.log(razorpayObject);
-  // razorpayObject.on("payment.failed", function (response) {
-  //   console.log(response);
-  //   alert("This step of Payment Failed");
-  // });
-  // document.getElementById("rzp-button1").onclick = function (e) {
-  //   razorpayObject.open();
-  //   e.preventDefault();
-  // };
-  // var rzp1 = new Razorpay(options);
-  // // document.getElementById("rzp-button1").onclick = function (e) {
-  // //   rzp1.open();
-  // //   e.preventDefault();
-  // // };
 </script>

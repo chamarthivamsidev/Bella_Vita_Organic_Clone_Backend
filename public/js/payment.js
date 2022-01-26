@@ -1,3 +1,5 @@
+console.log("razor_2");
+
 let sucess = document.getElementById("sucess");
 let container = document.getElementById("container");
 let home_btn = document.getElementById("home_btn");
