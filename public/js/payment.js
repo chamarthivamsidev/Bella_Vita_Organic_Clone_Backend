@@ -22,7 +22,6 @@ async function getCartProducts(uid) {
 function razorStart() {
   const price = localStorage.getItem("totalprice");
   const totalAmount = +price * 100;
-  console.log("totalAmount:", totalAmount);
 
   //generating order id
   var orderId;
@@ -42,7 +41,6 @@ function razorStart() {
     //creates new orderId everytime
     $.ajax(settings).done(function (response) {
       orderId = response.orderId;
-      console.log(orderId);
       $("button").show();
     });
   });
@@ -54,11 +52,12 @@ function razorStart() {
       amount: `${totalAmount}`, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
       currency: "INR",
       name: "Bella Vita Organic",
-      description: "Buy Ayurvedic Solutions",
-      image: "https://example.com/your_logo",
+      description: "Providing Ayurvedic Solutions",
+      image:
+        "https://image.pitchbook.com/P7Hrk1j3T4pMuYiMUSYxglFJ6Mr1618573989989_200x200",
       order_id: orderId,
       theme: {
-        color: "#99cc33",
+        color: "#f3c746",
       },
       callback_url: "/razorpay/success",
     };
