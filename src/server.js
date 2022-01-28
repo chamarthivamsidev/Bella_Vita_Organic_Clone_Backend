@@ -99,7 +99,7 @@ app.post("/create/orderId", (req, res) => {
 
 app.post("/razorpay/success", (req, res) => {
   // res.send({ message: "payment sucessful" });
-  res.render("success");
+  res.render("sucess", {});
 });
 // Connecting with port
 
