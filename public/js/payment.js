@@ -1,3 +1,66 @@
+// Razorpay Integration
+
+// setting total amount
+getCartProducts(uid);
+async function getCartProducts(uid) {
+  let res = await fetch(
+    `https://bellavitaorganic-cloned.herokuapp.com/cart/api/${uid}`
+  );
+  data = await res.json();
+  // cart_items = data.bag;
+  localStorage.setItem("totalprice", data.totalval);
+  document.getElementById("price_pro").innerHTML = `₹ ${data.totalval}.00`;
+
+  razorStart();
+}
+function razorStart() {
+  const price = localStorage.getItem("totalprice");
+  const totalAmount = +price * 100;
+  console.log("totalAmount:", totalAmount);
+
+  //generating order id
+  var orderId;
+  $(document).ready(function () {
+    var settings = {
+      url: "/create/orderId",
+      method: "POST",
+      timeout: 0,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      data: JSON.stringify({
+        amount: `${totalAmount}`,
+      }),
+    };
+
+    //creates new orderId everytime
+    $.ajax(settings).done(function (response) {
+      orderId = response.orderId;
+      console.log(orderId);
+      $("button").show();
+    });
+  });
+
+  // proceding to payment through razorpay
+  document.getElementById("rzp-button1").onclick = function (e) {
+    var options = {
+      key: "rzp_test_gW4ujGNEEezk8e",
+      amount: `${totalAmount}`, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+      currency: "INR",
+      name: "Bella Vita Organic",
+      description: "Buy Ayurvedic Solutions",
+      image: "https://example.com/your_logo",
+      order_id: orderId,
+      theme: {
+        color: "#99cc33",
+      },
+      callback_url: "/razorpay/success",
+    };
+    var rzp1 = new Razorpay(options);
+    rzp1.open();
+    e.preventDefault();
+  };
+}
 
 let sucess = document.getElementById("sucess");
 let container = document.getElementById("container");
@@ -18,19 +81,6 @@ document.querySelectorAll(".payment_method").forEach((el) => {
     el.style.color = "black";
   });
 });
-
-// setting total amount
-
-// getCartProducts(uid);
-// async function getCartProducts(uid) {
-//   let res = await fetch(
-//     `https://bellavitaorganic-cloned.herokuapp.com/cart/api/${uid}`
-//   );
-//   data = await res.json();
-//   // cart_items = data.bag;
-//   localStorage.setItem("totalprice", data.totalval);
-//   document.getElementById("price").innerHTML = `₹ ${data.totalval}.00`;
-// }
 
 // form validation
 
