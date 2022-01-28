@@ -14,8 +14,8 @@ Bella Vita Organic, Inc. is an Indian Health care Organic store. Founded in 2005
 - Browser LocalStorage for Frontend
 - MongoDB as Database
 - Express , EJS for Backend
-- [HEROKU DEPLOYMENT LINK](https://bellavitaorganic-cloned.herokuapp.com)
-- [BLOG LINK](https://hashnode.com/post/bella-vita-organic-website-clone-with-backendnodejs-express-and-mongodb-ckyr90iqh000e4us14slw6ycr)
+- [Heroku Deployment Link](https://bellavitaorganic-cloned.herokuapp.com)
+- [Blog Link](https://hashnode.com/post/bella-vita-organic-website-clone-with-backendnodejs-express-and-mongodb-ckyr90iqh000e4us14slw6ycr)
 
 ## Installing and Running
 <!-- <hr> -->
