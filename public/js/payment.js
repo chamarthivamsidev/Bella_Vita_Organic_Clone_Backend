@@ -57,7 +57,7 @@ function razorStart() {
         "https://image.pitchbook.com/P7Hrk1j3T4pMuYiMUSYxglFJ6Mr1618573989989_200x200",
       order_id: orderId,
       theme: {
-        color: "#f3c746",
+        color: "#fbd400",
       },
       callback_url: "/razorpay/success",
     };
