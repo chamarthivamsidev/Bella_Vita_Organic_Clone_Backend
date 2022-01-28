@@ -1,3 +1,9 @@
+let sucess = document.getElementById("sucess");
+let container = document.getElementById("container");
+let home_btn = document.getElementById("home_btn");
+let spinner = document.getElementById("spin");
+let uid = localStorage.getItem("uid");
+
 // Razorpay Integration
 
 // setting total amount
@@ -62,15 +68,11 @@ function razorStart() {
   };
 }
 
-let sucess = document.getElementById("sucess");
-let container = document.getElementById("container");
-let home_btn = document.getElementById("home_btn");
-let spinner = document.getElementById("spin");
-let uid = localStorage.getItem("uid");
-
+// redirecting to home page
 home_btn.addEventListener("click", () => {
   window.location.href = "https://bellavitaorganic-cloned.herokuapp.com";
 });
+
 document.querySelectorAll(".payment_method").forEach((el) => {
   el.addEventListener("mouseover", () => {
     el.style.backgroundColor = "teal";
