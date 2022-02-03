@@ -14,6 +14,7 @@ Bella Vita Organic, Inc. is an Indian Health care Organic store. Founded in 2005
 - Browser LocalStorage for Frontend
 - MongoDB as Database
 - Express , EJS for Backend
+- NPM Packages (Google Authentification and Razorpay Payment Integration)
 - [Heroku Deployment Link](https://bellavitaorganic-cloned.herokuapp.com)
 - [Blog Link](https://hashnode.com/post/bella-vita-organic-website-clone-with-backendnodejs-express-and-mongodb-ckyr90iqh000e4us14slw6ycr)
 
@@ -65,7 +66,7 @@ A glimpse of our website
 
 - On this page users can signup/sign-in based on whether the user is already registered or not.
 
-![Screenshot (115).png](https://cdn.hashnode.com/res/hashnode/image/upload/v1639927839884/4iulQfuXj.png?auto=compress)
+![Screenshot (115).png](https://cdn.hashnode.com/res/hashnode/image/upload/v1643862334980/Tc8N1bH7l.png)
 - The landing page where users cans see various categories and subcategories along with offers and discounts.
 
 
