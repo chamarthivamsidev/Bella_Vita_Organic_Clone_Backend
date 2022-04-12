@@ -38,7 +38,7 @@ passport.use(
 
       const token = newToken(user);
 
-      return done(null, { user, token }); // user: {user, token}
+      return done(null, { user, token });
     }
   )
 );
