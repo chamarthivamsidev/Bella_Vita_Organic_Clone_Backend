@@ -103,7 +103,7 @@ app.post("/razorpay/success", (req, res) => {
 });
 // Connecting with port
 
-const port = process.env.PORT || 8002;
+const port = process.env.PORT || 8000;
 
 app.listen(port, async () => {
   try {
